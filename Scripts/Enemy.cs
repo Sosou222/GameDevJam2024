@@ -10,6 +10,8 @@ public partial class Enemy : PathFollow2D
 
 	public override void _Ready()
 	{
+		AnimationLibrary animationLibrary = GD.Load<AnimationLibrary>("res://Resources/Animations/Firebug.res");
+		GD.Print($"Animation library count:{animationLibrary.GetAnimationList().Count}");
 	}
 
 
@@ -20,7 +22,7 @@ public partial class Enemy : PathFollow2D
 		Progress += Speed * (float)delta;
 
 		direction = SnapVector(oldPos);
-		GD.Print($"Direction:" + direction);
+		//GD.Print($"Direction:" + direction);
 	}
 
 	private Vector2 SnapVector(Vector2 oldPosition)
