@@ -55,7 +55,7 @@ public partial class AnimationsManager : Node
     {
         foreach (string enemyType in EnemyType.All)
         {
-            AnimationLibrary spriteFrames = GD.Load<AnimationLibrary>($"{animationLibrariesPath}{enemyType}.res");
+            AnimationLibrary spriteFrames = GD.Load<AnimationLibrary>($"{animationLibrariesPath}{enemyType}AnimationLibrary.res");
             if (spriteFrames == null)
             {
                 GD.Print($"Failed loading animation library for:{enemyType}");
