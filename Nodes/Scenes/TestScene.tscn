@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=4 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 
@@ -8,6 +8,12 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="Curve2D" id="Curve2D_20xkg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 18, 69, 0, 0, 0, 0, 594, 50, 0, 0, 0, 0, 623, 620, 0, 0, 0, 0, 163, 603, 0, 0, 0, 0, 189, 308, 0, 0, 0, 0, 865, 313, 0, 0, 0, 0, 857, 54, 0, 0, 0, 0, 1015, 58)
+}
+point_count = 8
+
 [node name="TestScene" type="Node2D"]
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -15,3 +21,6 @@ curve = SubResource("Curve2D_8cel2")
 
 [node name="Enemy" parent="Path2D" instance=ExtResource("1_efwuj")]
 position = Vector2(32, 274)
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_20xkg")
