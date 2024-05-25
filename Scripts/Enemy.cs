@@ -5,7 +5,7 @@ using System;
 public partial class Enemy : PathFollow2D
 {
 
-	public float Speed = 50.0f;
+	public float Speed = 100.0f;
 
 	private Vector2 direction = Vector2.Right;
 
@@ -14,7 +14,6 @@ public partial class Enemy : PathFollow2D
 
 	public override void _Ready()
 	{
-
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
@@ -34,7 +33,8 @@ public partial class Enemy : PathFollow2D
 		Progress += Speed * (float)delta;
 
 		direction = SnapVector(oldPos);
-		//GD.Print($"Direction:" + direction);
+
+		ChangeAnimation();
 	}
 
 	private Vector2 SnapVector(Vector2 oldPosition)
@@ -48,5 +48,28 @@ public partial class Enemy : PathFollow2D
 		{
 			return new Vector2(0, Mathf.Sign(dir.Y));
 		}
+	}
+
+	private void ChangeAnimation()
+	{
+		string animationName = "Walk";
+		if (direction == Vector2.Down)
+		{
+			animationName += "Down";
+		}
+		else if (direction == Vector2.Up)
+		{
+			animationName += "Up";
+		}
+		else if (direction == Vector2.Left)
+		{
+			animationName += "Left";
+		}
+		else
+		{
+			animationName += "Right";
+		}
+
+		animationPlayer.Play(animationName);
 	}
 }

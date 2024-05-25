@@ -19,8 +19,8 @@ point_count = 8
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_8cel2")
 
-[node name="Enemy" parent="Path2D" instance=ExtResource("1_efwuj")]
-position = Vector2(32, 274)
-
 [node name="Path2D2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_20xkg")
+
+[node name="Enemy" parent="Path2D2" instance=ExtResource("1_efwuj")]
+position = Vector2(32, 274)
