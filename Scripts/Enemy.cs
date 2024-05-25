@@ -1,3 +1,4 @@
+using Constants;
 using Godot;
 using System;
 
@@ -17,16 +18,9 @@ public partial class Enemy : PathFollow2D
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
-		animatedSprite2D.SpriteFrames = GD.Load<SpriteFrames>("res://Resources/AnimatedSprites/FirebugSpriteFrames.tres");
+		animatedSprite2D.SpriteFrames = AnimationsManager.GetSpritesFrames(EnemyType.FireBug);
 
-		AnimationLibrary animationLibrary = GD.Load<AnimationLibrary>("res://Resources/Animations/Firebug.res");
-		animationPlayer.AddAnimationLibrary("", animationLibrary);
-
-		GD.Print($"Animation library count:{animationLibrary.GetAnimationList().Count}");
-		foreach (var animation in animationPlayer.GetAnimationList())
-		{
-			GD.Print($"Animation Name:{animation}");
-		}
+		animationPlayer.AddAnimationLibrary("", AnimationsManager.GetAnimationLibrary(EnemyType.FireBug));
 
 		animationPlayer.Play("DyingUp");
 

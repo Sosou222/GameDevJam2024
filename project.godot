@@ -15,6 +15,10 @@ run/main_scene="res://Nodes/Scenes/TestScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AnimationsManager="*res://Nodes/Autoload/AnimationsManager.tscn"
+
 [dotnet]
 
 project/assembly_name="GameDevJam2024"
