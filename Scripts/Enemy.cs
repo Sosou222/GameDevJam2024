@@ -13,6 +13,7 @@ public partial class Enemy : PathFollow2D
 
 	public override void _Ready()
 	{
+
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
@@ -28,6 +29,7 @@ public partial class Enemy : PathFollow2D
 		}
 
 		animationPlayer.Play("DyingUp");
+
 	}
 
 

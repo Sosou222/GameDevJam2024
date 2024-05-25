@@ -8,6 +8,5 @@ loop = false
 script = ExtResource("1_ncfp2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-animation = &""
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
