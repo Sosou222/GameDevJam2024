@@ -21,7 +21,7 @@ public partial class Enemy : PathFollow2D
 
 		animationPlayer.AddAnimationLibrary("", AnimationsManager.GetAnimationLibrary(EnemyType.FireBug));
 
-		animationPlayer.Play("DyingUp");
+		animationPlayer.Play("WalkRight");
 
 	}
 
@@ -35,6 +35,11 @@ public partial class Enemy : PathFollow2D
 		direction = SnapVector(oldPos);
 
 		ChangeAnimation();
+	}
+
+	public void Init()
+	{
+
 	}
 
 	private Vector2 SnapVector(Vector2 oldPosition)
