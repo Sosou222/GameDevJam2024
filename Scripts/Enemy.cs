@@ -5,6 +5,10 @@ using System;
 public partial class Enemy : PathFollow2D
 {
 
+	[Signal]
+	public delegate void ReachedEndEventHandler();
+
+
 	public float Speed = 100.0f;
 
 	private Vector2 direction = Vector2.Right;
@@ -23,6 +27,9 @@ public partial class Enemy : PathFollow2D
 
 		animationPlayer.Play("WalkRight");
 
+		this.ReachedEnd += () => GD.Print($"{Name} reached end");
+		this.ReachedEnd += QueueFree;
+
 	}
 
 
@@ -35,6 +42,11 @@ public partial class Enemy : PathFollow2D
 		direction = SnapVector(oldPos);
 
 		ChangeAnimation();
+
+		if (ProgressRatio == 1.0f)
+		{
+			EmitSignal(SignalName.ReachedEnd);
+		}
 	}
 
 	public void Init()
