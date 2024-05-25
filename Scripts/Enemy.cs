@@ -8,10 +8,26 @@ public partial class Enemy : PathFollow2D
 
 	private Vector2 direction = Vector2.Right;
 
+	private AnimationPlayer animationPlayer;
+	private AnimatedSprite2D animatedSprite2D;
+
 	public override void _Ready()
 	{
+		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+
+		animatedSprite2D.SpriteFrames = GD.Load<SpriteFrames>("res://Resources/AnimatedSprites/FirebugSpriteFrames.tres");
+
 		AnimationLibrary animationLibrary = GD.Load<AnimationLibrary>("res://Resources/Animations/Firebug.res");
+		animationPlayer.AddAnimationLibrary("", animationLibrary);
+
 		GD.Print($"Animation library count:{animationLibrary.GetAnimationList().Count}");
+		foreach (var animation in animationPlayer.GetAnimationList())
+		{
+			GD.Print($"Animation Name:{animation}");
+		}
+
+		animationPlayer.Play("DyingUp");
 	}
 
 
