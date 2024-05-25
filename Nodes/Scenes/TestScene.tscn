@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://djahjcor3q0i4"]
 
-[ext_resource type="Texture2D" uid="uid://c0ewr043c4gts" path="res://icon.svg" id="1_l1yh6"]
+[ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 
 [sub_resource type="Curve2D" id="Curve2D_8cel2"]
 _data = {
@@ -13,9 +13,5 @@ point_count = 6
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_8cel2")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="Enemy" parent="Path2D" instance=ExtResource("1_efwuj")]
 position = Vector2(32, 274)
-rotation = -0.370616
-
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
-texture = ExtResource("1_l1yh6")

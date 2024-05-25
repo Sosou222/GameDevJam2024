@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b15sahkucvymu"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_ncfp2"]
+[ext_resource type="Texture2D" uid="uid://p0qv8ruuk5yb" path="res://Sprites/Foozle_Sprites/Enemies/Ground/Firebug.png" id="2_8v2cm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnhk1"]
+atlas = ExtResource("2_8v2cm")
+region = Rect2(32, 128, 64, 56)
+
+[node name="Enemy" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_ncfp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_mnhk1")
