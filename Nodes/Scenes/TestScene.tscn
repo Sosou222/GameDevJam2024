@@ -22,7 +22,7 @@ visible = false
 curve = SubResource("Curve2D_8cel2")
 
 [node name="Enemy" parent="Path2D" instance=ExtResource("1_efwuj")]
-position = Vector2(18, 69)
+position = Vector2(32, 274)
 
 [node name="WaveManager" type="Node2D" parent="."]
 script = ExtResource("2_dvjyl")
