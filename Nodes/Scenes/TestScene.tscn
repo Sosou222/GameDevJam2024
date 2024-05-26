@@ -19,4 +19,3 @@ enemyPackedScene = ExtResource("1_efwuj")
 curve = SubResource("Curve2D_20xkg")
 
 [node name="Timer" type="Timer" parent="WaveManager"]
-autostart = true
