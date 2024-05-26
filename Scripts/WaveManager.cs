@@ -26,10 +26,10 @@ public partial class WaveManager : Node2D
 
 		timer.Timeout += OnSpawnEnemy;
 		this.WaveEnd += (waveN) => GD.Print($"Wave {waveN} ended");
-		StartWave(0);
+		//StartWave(0);
 	}
 
-	private void StartWave(int waveNumber)
+	public void StartWave(int waveNumber)
 	{
 		waveIndex = waveNumber;
 		waveData.Clear();

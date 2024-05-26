@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=5 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
+[ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
@@ -11,11 +12,14 @@ point_count = 8
 
 [node name="TestScene" type="Node2D"]
 
-[node name="WaveManager" type="Node2D" parent="."]
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("1_ykn36")
+
+[node name="WaveManager" type="Node2D" parent="GameManager"]
 script = ExtResource("2_dvjyl")
 enemyPackedScene = ExtResource("1_efwuj")
 
-[node name="EnemyPath" type="Path2D" parent="WaveManager"]
+[node name="EnemyPath" type="Path2D" parent="GameManager/WaveManager"]
 curve = SubResource("Curve2D_20xkg")
 
-[node name="Timer" type="Timer" parent="WaveManager"]
+[node name="Timer" type="Timer" parent="GameManager/WaveManager"]
