@@ -21,9 +21,9 @@ public partial class Enemy : PathFollow2D
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
-		animatedSprite2D.SpriteFrames = AnimationsManager.GetSpritesFrames(EnemyType.FireBug);
+		animatedSprite2D.SpriteFrames = AnimationsManager.GetSpritesFrames(EnemyType.Leafbug);
 
-		animationPlayer.AddAnimationLibrary("", AnimationsManager.GetAnimationLibrary(EnemyType.FireBug));
+		animationPlayer.AddAnimationLibrary("", AnimationsManager.GetAnimationLibrary(EnemyType.Leafbug));
 
 		animationPlayer.Play("WalkRight");
 
