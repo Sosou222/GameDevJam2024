@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=4 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
-
-[sub_resource type="Curve2D" id="Curve2D_8cel2"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 32, 274, -138.843, 1.99774, 138.843, -1.99774, 382, 138, -4.99436, -122.861, 4.99436, 122.861, 690, 353, -292.669, -85.9029, 292.669, 85.9029, 338, 492, -97.8894, 37.9571, 97.8894, -37.9571, 1017, 612, 0, 0, 0, 0, 1103, 77)
-}
-point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
 _data = {
@@ -16,13 +10,6 @@ _data = {
 point_count = 8
 
 [node name="TestScene" type="Node2D"]
-
-[node name="Path2D" type="Path2D" parent="."]
-visible = false
-curve = SubResource("Curve2D_8cel2")
-
-[node name="Enemy" parent="Path2D" instance=ExtResource("1_efwuj")]
-position = Vector2(32, 274)
 
 [node name="WaveManager" type="Node2D" parent="."]
 script = ExtResource("2_dvjyl")

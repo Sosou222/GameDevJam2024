@@ -9,7 +9,7 @@ public partial class Enemy : PathFollow2D
 	public delegate void ReachedEndEventHandler();
 
 
-	public float Speed = 100.0f;
+	private float Speed = 100.0f;
 
 	private Vector2 direction = Vector2.Right;
 
@@ -20,12 +20,6 @@ public partial class Enemy : PathFollow2D
 	{
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-
-		animatedSprite2D.SpriteFrames = AnimationsManager.GetSpritesFrames(EnemyType.Leafbug);
-
-		animationPlayer.AddAnimationLibrary("", AnimationsManager.GetAnimationLibrary(EnemyType.Leafbug));
-
-		animationPlayer.Play("WalkRight");
 
 		this.ReachedEnd += () => GD.Print($"{Name} reached end");
 		this.ReachedEnd += QueueFree;
@@ -49,9 +43,13 @@ public partial class Enemy : PathFollow2D
 		}
 	}
 
-	public void Init()
+	public void Init(string EnemyType, EnemyInfo enemyInfo)
 	{
+		animatedSprite2D.SpriteFrames = AnimationsManager.GetSpritesFrames(EnemyType);
+		animationPlayer.AddAnimationLibrary("", AnimationsManager.GetAnimationLibrary(EnemyType));
+		animationPlayer.Play("WalkRight");
 
+		Speed = enemyInfo.Speed;
 	}
 
 	private Vector2 SnapVector(Vector2 oldPosition)

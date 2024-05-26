@@ -1,3 +1,4 @@
+using Constants;
 using Godot;
 using System;
 
@@ -19,5 +20,7 @@ public partial class WaveManager : Node2D
 	{
 		Enemy enemy = enemyPackedScene.Instantiate<Enemy>();
 		enemyPath.AddChild(enemy);
+		string enemyType = EnemyType.All[GD.RandRange(0, EnemyType.All.Count - 1)];
+		enemy.Init(enemyType, EnemyData.Info[enemyType]);
 	}
 }
