@@ -11,7 +11,7 @@ public partial class GameManager : Node
         waveManager = GetNode<WaveManager>("WaveManager");
 
         waveManager.WaveEnd += BeginNewWave;
-        waveManager.StartWave(0);
+        waveManager.StartWave(2);
     }
 
     private void BeginNewWave(int lastWave)

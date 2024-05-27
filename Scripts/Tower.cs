@@ -16,6 +16,8 @@ public partial class Tower : Node2D
 	private Area2D area2D;
 
 
+	private Array<Enemy> enemies = new Array<Enemy>();
+
 	private const int pixelAtlasSeperationX = 64;
 
 	public override void _Ready()
@@ -26,6 +28,15 @@ public partial class Tower : Node2D
 		area2D.AreaExited += OnArea2DExit;
 	}
 
+	public override void _Process(double delta)
+	{
+		Enemy en = EnemiesManager.GetFirstEnemyInSightOrNull(enemies);
+		if (en != null)
+		{
+			GD.Print($"Enemy {en.Name} progres:{en.ProgressRatio}");
+		}
+	}
+
 	private void LevelUp()
 	{
 		Rect2 tmpReg = towerBaseAtlasTexture.Region;
@@ -34,16 +45,25 @@ public partial class Tower : Node2D
 
 	private void OnArea2DEnter(Area2D area2D)
 	{
-		//GD.Print($"Enter Name:{area2D.Name}");
 		if (area2D is HitboxComponent hc)
 		{
-			//GD.Print("Is a hitbox");
+			if (hc.Owner is Enemy enemy)
+			{
+				enemies.Add(enemy);
+				enemy.TreeExited += () => enemies.Remove(enemy);
+			}
 		}
 	}
 
 	private void OnArea2DExit(Area2D area2D)
 	{
-		//GD.Print($"Exit Name:{area2D.Name}");
+		if (area2D is HitboxComponent hc)
+		{
+			if (hc.Owner is Enemy enemy)
+			{
+				enemies.Remove(enemy);
+			}
+		}
 	}
 
 }
