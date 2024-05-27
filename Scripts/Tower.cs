@@ -35,6 +35,10 @@ public partial class Tower : Node2D
 	private void OnArea2DEnter(Area2D area2D)
 	{
 		GD.Print($"Enter Name:{area2D.Name}");
+		if (area2D is HitboxComponent hc)
+		{
+			GD.Print("Is a hitbox");
+		}
 	}
 
 	private void OnArea2DExit(Area2D area2D)

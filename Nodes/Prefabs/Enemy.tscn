@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b15sahkucvymu"]
+[gd_scene load_steps=5 format=3 uid="uid://b15sahkucvymu"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_ncfp2"]
+[ext_resource type="PackedScene" uid="uid://c3e8f00ryqwbp" path="res://Nodes/Components/HitboxComponent.tscn" id="2_g72u3"]
+[ext_resource type="PackedScene" uid="uid://be0p70r0m0v03" path="res://Nodes/Components/HealthComponent.tscn" id="3_88cmk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eheif"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdi0g"]
 
 [node name="Enemy" type="PathFollow2D"]
 rotates = false
@@ -13,8 +15,10 @@ script = ExtResource("1_ncfp2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="EnemyHitbox" type="Area2D" parent="."]
-collision_mask = 0
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("2_g72u3")]
+healthComponent = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
-shape = SubResource("RectangleShape2D_eheif")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_hdi0g")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_88cmk")]
