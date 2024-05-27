@@ -39,7 +39,7 @@ public partial class HealthComponent : Node
 
     public void TakeDamage(int damage)
     {
-        Health -= Mathf.Max(Health - damage, 0);
+        Health = Mathf.Max(Health - damage, 0);
         if (Health == 0)
         {
             EmitSignal(SignalName.Die);

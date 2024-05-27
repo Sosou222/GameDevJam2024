@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=7 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
 [ext_resource type="PackedScene" uid="uid://dxkbi1s5ouiwk" path="res://Nodes/Prefabs/Tower.tscn" id="4_w57hf"]
+[ext_resource type="PackedScene" uid="uid://ck8xvro86pp2p" path="res://Nodes/Prefabs/Bullets/Bullet.tscn" id="5_oafn8"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
 _data = {
@@ -27,3 +28,7 @@ curve = SubResource("Curve2D_20xkg")
 
 [node name="Tower" parent="GameManager" instance=ExtResource("4_w57hf")]
 position = Vector2(229, 148)
+
+[node name="Bullet" parent="GameManager" instance=ExtResource("5_oafn8")]
+position = Vector2(333, 57)
+collision_mask = 1
