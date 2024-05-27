@@ -60,6 +60,7 @@ public partial class WaveManager : Node2D
 		enemyPath.AddChild(enemy);
 		enemy.Init(enemyType, EnemyData.Info[enemyType]);
 		enemy.ReachedEnd += OnEnemyEndOrDie;
+		enemy.healthComponent.Die += OnEnemyEndOrDie;
 
 		wavePositionCurrent++;
 	}

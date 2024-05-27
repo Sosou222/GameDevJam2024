@@ -8,6 +8,8 @@ public partial class Enemy : PathFollow2D
 	[Signal]
 	public delegate void ReachedEndEventHandler();
 
+	public HealthComponent healthComponent { get; private set; }
+
 
 	private float Speed = 100.0f;
 
@@ -16,14 +18,18 @@ public partial class Enemy : PathFollow2D
 	private AnimationPlayer animationPlayer;
 	private AnimatedSprite2D animatedSprite2D;
 
+
+
 	public override void _Ready()
 	{
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		healthComponent = GetNode<HealthComponent>("HealthComponent");
 
 		this.ReachedEnd += () => GD.Print($"{Name} reached end");
 		this.ReachedEnd += QueueFree;
 
+		healthComponent.Die += QueueFree;
 	}
 
 
