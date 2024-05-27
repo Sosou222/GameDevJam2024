@@ -59,8 +59,11 @@ public partial class WaveManager : Node2D
 		Enemy enemy = enemyPackedScene.Instantiate<Enemy>();
 		enemyPath.AddChild(enemy);
 		enemy.Init(enemyType, EnemyData.Info[enemyType]);
-		enemy.ReachedEnd += OnEnemyEndOrDie;
-		enemy.healthComponent.Die += OnEnemyEndOrDie;
+
+		//enemy.ReachedEnd += OnEnemyEndOrDie;
+		//enemy.healthComponent.Die += OnEnemyEndOrDie;
+
+		enemy.TreeExited += OnEnemyEndOrDie;
 
 		wavePositionCurrent++;
 	}
