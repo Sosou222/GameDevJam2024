@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=6 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
+[ext_resource type="PackedScene" uid="uid://dxkbi1s5ouiwk" path="res://Nodes/Prefabs/Tower.tscn" id="4_w57hf"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
 _data = {
@@ -23,3 +24,6 @@ enemyPackedScene = ExtResource("1_efwuj")
 curve = SubResource("Curve2D_20xkg")
 
 [node name="Timer" type="Timer" parent="GameManager/WaveManager"]
+
+[node name="Tower" parent="GameManager" instance=ExtResource("4_w57hf")]
+position = Vector2(229, 148)

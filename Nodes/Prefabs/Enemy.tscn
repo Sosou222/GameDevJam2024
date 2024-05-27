@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b15sahkucvymu"]
+[gd_scene load_steps=3 format=3 uid="uid://b15sahkucvymu"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_ncfp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eheif"]
 
 [node name="Enemy" type="PathFollow2D"]
 rotates = false
@@ -10,3 +12,9 @@ script = ExtResource("1_ncfp2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="EnemyHitbox" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
+shape = SubResource("RectangleShape2D_eheif")

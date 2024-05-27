@@ -23,6 +23,10 @@ AnimationsManager="*res://Nodes/Autoload/AnimationsManager.tscn"
 
 project/assembly_name="GameDevJam2024"
 
+[layer_names]
+
+2d_physics/layer_1="Enemies"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

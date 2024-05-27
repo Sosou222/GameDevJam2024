@@ -1,0 +1,242 @@
+[gd_scene load_steps=32 format=3 uid="uid://dxkbi1s5ouiwk"]
+
+[ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="1_1omk5"]
+[ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_5thdq"]
+[ext_resource type="Texture2D" uid="uid://yiil44m7t6m4" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Weapon.png" id="2_3l0sw"]
+[ext_resource type="Texture2D" uid="uid://dojrof5t7j8xj" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 02 - Weapon.png" id="3_cf7no"]
+[ext_resource type="Texture2D" uid="uid://2ut2l8lcodh2" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 03 - Weapon.png" id="4_56dsf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghy2f"]
+atlas = ExtResource("1_1omk5")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dprl3"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4djke"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8fve"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prtyj"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mysk6"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_342b1"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6qvt"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shm1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dprl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4djke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8fve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prtyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mysk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_342b1")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6qvt")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1tpt"]
+atlas = ExtResource("3_cf7no")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oujt"]
+atlas = ExtResource("3_cf7no")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj1lp"]
+atlas = ExtResource("3_cf7no")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5atrb"]
+atlas = ExtResource("3_cf7no")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv5cn"]
+atlas = ExtResource("3_cf7no")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctysw"]
+atlas = ExtResource("3_cf7no")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qitok"]
+atlas = ExtResource("3_cf7no")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xp3k1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1tpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oujt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj1lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5atrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv5cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctysw")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qitok")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q58bi"]
+atlas = ExtResource("4_56dsf")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls3cr"]
+atlas = ExtResource("4_56dsf")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb8c0"]
+atlas = ExtResource("4_56dsf")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o5xt"]
+atlas = ExtResource("4_56dsf")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqb1b"]
+atlas = ExtResource("4_56dsf")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sibjs"]
+atlas = ExtResource("4_56dsf")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f7d6"]
+atlas = ExtResource("4_56dsf")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov7p3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q58bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls3cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb8c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o5xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqb1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sibjs")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f7d6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c08ne"]
+radius = 301.374
+
+[node name="Tower" type="Node2D"]
+script = ExtResource("1_5thdq")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="TowerBaseSprite" type="Sprite2D" parent="Sprites"]
+texture = SubResource("AtlasTexture_ghy2f")
+
+[node name="TowerWeaponLV1Sprite" type="AnimatedSprite2D" parent="Sprites"]
+visible = false
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_shm1v")
+animation = &"Idle"
+
+[node name="TowerWaponLV2Sprite" type="AnimatedSprite2D" parent="Sprites"]
+visible = false
+position = Vector2(0, -19)
+sprite_frames = SubResource("SpriteFrames_xp3k1")
+animation = &"Idle"
+
+[node name="TowerWeaponLV3Sprite" type="AnimatedSprite2D" parent="Sprites"]
+position = Vector2(0, -27)
+sprite_frames = SubResource("SpriteFrames_ov7p3")
+animation = &"Idle"
+
+[node name="LevelMarkers" type="Node2D" parent="."]
+
+[node name="Level1" type="Marker2D" parent="LevelMarkers"]
+position = Vector2(0, -38)
+
+[node name="Level2" type="Marker2D" parent="LevelMarkers"]
+position = Vector2(0, -43)
+
+[node name="Level3" type="Marker2D" parent="LevelMarkers"]
+position = Vector2(0, -50)
+
+[node name="TowerDetectionRange" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetectionRange"]
+shape = SubResource("CircleShape2D_c08ne")
