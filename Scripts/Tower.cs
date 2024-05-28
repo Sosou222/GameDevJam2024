@@ -6,6 +6,11 @@ using System.Collections.Generic;
 public partial class Tower : Node2D
 {
 
+	[Export] private PackedScene bulletScene;
+
+	[Export] private Marker2D currentMarker;
+	[Export] private AnimatedSprite2D currentSprite;
+
 	private int level = 1;
 
 	private AtlasTexture towerBaseAtlasTexture;
@@ -14,6 +19,7 @@ public partial class Tower : Node2D
 	private Dictionary<int, Marker2D> levelMarkers = new();
 
 	private Area2D area2D;
+	private Timer timer;
 
 
 	private List<Enemy> enemies = new();
@@ -24,17 +30,35 @@ public partial class Tower : Node2D
 	{
 		towerBaseAtlasTexture = GetNode<Sprite2D>("Sprites/TowerBaseSprite").Texture as AtlasTexture;
 		area2D = GetNode<Area2D>("TowerDetectionRange");
+		timer = GetNode<Timer>("Timer");
+
 		area2D.AreaEntered += OnArea2DEnter;
 		area2D.AreaExited += OnArea2DExit;
+		timer.Timeout += Shoot;
 	}
 
 	public override void _Process(double delta)
+	{
+
+	}
+
+	private void Shoot()
 	{
 		enemies.RemoveAll(e => e == null || !IsInstanceValid(e));
 		Enemy en = EnemiesManager.GetFirstEnemyInSightOrNull(enemies);
 		if (en != null)
 		{
-			GD.Print($"Enemy {en.Name} progres:{en.ProgressRatio}");
+			//GD.Print($"Enemy {en.Name} progres:{en.ProgressRatio}");
+			currentSprite.LookAt(en.GlobalPosition);
+			currentSprite.Rotate(Mathf.DegToRad(90.0f));
+			Vector2 dirToEnemy = (en.GlobalPosition - currentMarker.GlobalPosition).Normalized();
+
+			Bullet bullet = bulletScene.Instantiate<Bullet>();
+			bullet.Init(dirToEnemy);
+			bullet.LookAt(en.GlobalPosition);
+			bullet.Rotate(Mathf.DegToRad(-90.0f));
+
+			AddChild(bullet);
 		}
 	}
 
