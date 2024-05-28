@@ -33,7 +33,7 @@ public partial class EnemiesManager : Node
         }
     }
 
-    public static Enemy GetFirstEnemyInSightOrNull(Godot.Collections.Array<Enemy> enemiesInSight)
+    public static Enemy GetFirstEnemyInSightOrNull(List<Enemy> enemiesInSight)
     {
         var tmp = instance.enemies.Where(e => enemiesInSight.Contains(e)).ToList();
         if (tmp.Count == 0)

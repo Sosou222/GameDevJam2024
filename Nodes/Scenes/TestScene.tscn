@@ -27,7 +27,7 @@ curve = SubResource("Curve2D_20xkg")
 [node name="Timer" type="Timer" parent="GameManager/WaveManager"]
 
 [node name="Tower" parent="GameManager" instance=ExtResource("4_w57hf")]
-position = Vector2(462, 376)
+position = Vector2(291, 215)
 
 [node name="Bullet" parent="GameManager" instance=ExtResource("5_oafn8")]
-position = Vector2(181, 382)
+position = Vector2(244, 62)

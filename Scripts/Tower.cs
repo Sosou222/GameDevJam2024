@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-using Godot.Collections;
+using System.Collections.Generic;
 
 public partial class Tower : Node2D
 {
@@ -16,7 +16,7 @@ public partial class Tower : Node2D
 	private Area2D area2D;
 
 
-	private Array<Enemy> enemies = new Array<Enemy>();
+	private List<Enemy> enemies = new();
 
 	private const int pixelAtlasSeperationX = 64;
 
@@ -30,6 +30,7 @@ public partial class Tower : Node2D
 
 	public override void _Process(double delta)
 	{
+		enemies.RemoveAll(e => e == null || !IsInstanceValid(e));
 		Enemy en = EnemiesManager.GetFirstEnemyInSightOrNull(enemies);
 		if (en != null)
 		{
@@ -50,7 +51,6 @@ public partial class Tower : Node2D
 			if (hc.Owner is Enemy enemy)
 			{
 				enemies.Add(enemy);
-				enemy.TreeExited += () => enemies.Remove(enemy);
 			}
 		}
 	}
