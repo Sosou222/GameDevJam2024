@@ -11,6 +11,68 @@
 atlas = ExtResource("1_1omk5")
 region = Rect2(0, 0, 64, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dprl3"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4djke"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8fve"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prtyj"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mysk6"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_342b1"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6qvt"]
+atlas = ExtResource("2_3l0sw")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shm1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dprl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4djke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8fve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prtyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mysk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_342b1")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6qvt")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1tpt"]
 atlas = ExtResource("3_cf7no")
 region = Rect2(0, 0, 96, 96)
@@ -135,111 +197,53 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dprl3"]
-atlas = ExtResource("2_3l0sw")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4djke"]
-atlas = ExtResource("2_3l0sw")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p8fve"]
-atlas = ExtResource("2_3l0sw")
-region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_prtyj"]
-atlas = ExtResource("2_3l0sw")
-region = Rect2(288, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mysk6"]
-atlas = ExtResource("2_3l0sw")
-region = Rect2(384, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_342b1"]
-atlas = ExtResource("2_3l0sw")
-region = Rect2(480, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k6qvt"]
-atlas = ExtResource("2_3l0sw")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_shm1v"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dprl3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4djke")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p8fve")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_prtyj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mysk6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_342b1")
-}],
-"loop": true,
-"name": &"Fire",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k6qvt")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_c08ne"]
 radius = 301.374
 
-[node name="Tower" type="Node2D" node_paths=PackedStringArray("currentMarker", "currentSprite", "holder")]
+[node name="Tower" type="Node2D"]
 script = ExtResource("1_5thdq")
 bulletScene = ExtResource("2_ma5it")
-currentMarker = NodePath("Sprites/LV1/TowerWeaponLV1Sprite/Level1")
-currentSprite = NodePath("Sprites/LV1/TowerWeaponLV1Sprite")
-holder = NodePath("Sprites/LV1")
 
-[node name="Sprites" type="Node2D" parent="."]
-
-[node name="TowerBaseSprite" type="Sprite2D" parent="Sprites"]
+[node name="TowerBaseSprite" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_ghy2f")
 
-[node name="TowerWaponLV2Sprite" type="AnimatedSprite2D" parent="Sprites"]
-visible = false
-position = Vector2(0, -19)
-sprite_frames = SubResource("SpriteFrames_xp3k1")
-animation = &"Idle"
+[node name="Weapons" type="Node2D" parent="."]
 
-[node name="Level2" type="Marker2D" parent="Sprites/TowerWaponLV2Sprite"]
-position = Vector2(0, -24)
-
-[node name="TowerWeaponLV3Sprite" type="AnimatedSprite2D" parent="Sprites"]
-visible = false
-position = Vector2(0, -27)
-sprite_frames = SubResource("SpriteFrames_ov7p3")
-animation = &"Idle"
-
-[node name="Level3" type="Marker2D" parent="Sprites/TowerWeaponLV3Sprite"]
-position = Vector2(0, -23)
-
-[node name="LV1" type="Node2D" parent="Sprites"]
+[node name="LV1" type="Node2D" parent="Weapons"]
 position = Vector2(0, -12)
 
-[node name="TowerWeaponLV1Sprite" type="AnimatedSprite2D" parent="Sprites/LV1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weapons/LV1"]
 rotation = 1.57079
 sprite_frames = SubResource("SpriteFrames_shm1v")
 animation = &"Idle"
 
-[node name="Level1" type="Marker2D" parent="Sprites/LV1/TowerWeaponLV1Sprite"]
-position = Vector2(0, -26)
+[node name="Marker2D" type="Marker2D" parent="Weapons/LV1"]
+position = Vector2(26, -5.81741e-05)
+rotation = 1.57079
+
+[node name="LV2" type="Node2D" parent="Weapons"]
+position = Vector2(0, -19)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weapons/LV2"]
+rotation = 1.57079
+sprite_frames = SubResource("SpriteFrames_xp3k1")
+animation = &"Idle"
+
+[node name="Marker2D" type="Marker2D" parent="Weapons/LV2"]
+position = Vector2(26, 0)
+rotation = 1.57079
+
+[node name="LV3" type="Node2D" parent="Weapons"]
+position = Vector2(0, -27)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weapons/LV3"]
+rotation = 1.57079
+sprite_frames = SubResource("SpriteFrames_ov7p3")
+animation = &"Idle"
+
+[node name="Marker2D" type="Marker2D" parent="Weapons/LV3"]
+position = Vector2(26, 0)
+rotation = 1.57079
 
 [node name="TowerDetectionRange" type="Area2D" parent="."]
 collision_layer = 0

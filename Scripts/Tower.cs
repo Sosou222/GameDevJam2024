@@ -8,16 +8,16 @@ public partial class Tower : Node2D
 
 	[Export] private PackedScene bulletScene;
 
-	[Export] private Marker2D currentMarker;
-	[Export] private AnimatedSprite2D currentSprite;
-	[Export] private Node2D holder;
+	private Dictionary<int, Node2D> weaponsHolders = new();
+	private Node2D currentWeaponHolder;
+	private Marker2D currentMarker;
+	private AnimatedSprite2D currentSprites;
 
-	private int level = 1;
+
+	private int currentLevel = 1;
 
 	private AtlasTexture towerBaseAtlasTexture;
 
-	private Dictionary<int, AnimatedSprite2D> towerBaseSprites = new();
-	private Dictionary<int, Marker2D> levelMarkers = new();
 
 	private Area2D area2D;
 	private Timer timer;
@@ -29,13 +29,19 @@ public partial class Tower : Node2D
 
 	public override void _Ready()
 	{
-		towerBaseAtlasTexture = GetNode<Sprite2D>("Sprites/TowerBaseSprite").Texture as AtlasTexture;
+		towerBaseAtlasTexture = GetNode<Sprite2D>("TowerBaseSprite").Texture as AtlasTexture;
 		area2D = GetNode<Area2D>("TowerDetectionRange");
 		timer = GetNode<Timer>("Timer");
 
 		area2D.AreaEntered += OnArea2DEnter;
 		area2D.AreaExited += OnArea2DExit;
 		timer.Timeout += Shoot;
+
+		weaponsHolders.Add(1, GetNode<Node2D>("Weapons/LV1"));
+		weaponsHolders.Add(2, GetNode<Node2D>("Weapons/LV2"));
+		weaponsHolders.Add(3, GetNode<Node2D>("Weapons/LV3"));
+
+		SetLevel(2);
 	}
 
 	public override void _Process(double delta)
@@ -50,7 +56,7 @@ public partial class Tower : Node2D
 		if (en != null)
 		{
 			//GD.Print($"Enemy {en.Name} progres:{en.ProgressRatio}");
-			holder.LookAt(en.GlobalPosition);
+			currentWeaponHolder.LookAt(en.GlobalPosition);
 			Vector2 dirToEnemy = (en.GlobalPosition - currentMarker.GlobalPosition).Normalized();
 
 			Bullet bullet = bulletScene.Instantiate<Bullet>();
@@ -62,10 +68,26 @@ public partial class Tower : Node2D
 		}
 	}
 
-	private void LevelUp()
+	private void SetLevel(int level)
 	{
+		currentLevel = level;
+
 		Rect2 tmpReg = towerBaseAtlasTexture.Region;
-		towerBaseAtlasTexture.Region = new Rect2(tmpReg.Position, new Vector2(pixelAtlasSeperationX * (level - 1), tmpReg.Size.Y));
+		towerBaseAtlasTexture.Region = new Rect2(new Vector2(tmpReg.Size.X * (currentLevel - 1), tmpReg.Position.Y), tmpReg.Size);
+		SetCurrentGolders(currentLevel);
+	}
+
+	private void SetCurrentGolders(int level)
+	{
+		foreach (var weapon in weaponsHolders)
+		{
+			weapon.Value.Visible = false;
+		}
+		currentWeaponHolder = weaponsHolders[level];
+		currentMarker = currentWeaponHolder.GetNode<Marker2D>("Marker2D");
+		currentSprites = currentWeaponHolder.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+		currentWeaponHolder.Visible = true;
 	}
 
 	private void OnArea2DEnter(Area2D area2D)
