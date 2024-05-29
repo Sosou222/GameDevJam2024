@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://d2n4kvubrfcv0"]
+[gd_scene load_steps=35 format=3 uid="uid://d2n4kvubrfcv0"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_kcoee"]
 [ext_resource type="Texture2D" uid="uid://dtjha4npjmeyw" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 02.png" id="2_6ahu3"]
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="2_qbwi6"]
+[ext_resource type="PackedScene" uid="uid://cyfthae8xahli" path="res://Nodes/Prefabs/Bullets/ArrowBullet/ArrowBulletLv1.tscn" id="2_va7ji"]
 [ext_resource type="Texture2D" uid="uid://d2p0bp5elkb4v" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 01 - Weapon.png" id="3_q8ty7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f85j3"]
@@ -209,6 +210,7 @@ radius = 162.25
 
 [node name="MageTowerLv1" type="Node2D"]
 script = ExtResource("1_kcoee")
+bulletScene = ExtResource("2_va7ji")
 weaponBehavior = 1
 
 [node name="TowerBase" type="Sprite2D" parent="."]
@@ -230,3 +232,4 @@ position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_nnktl")
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true

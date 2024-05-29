@@ -13,10 +13,10 @@ public partial class HitboxComponent : Area2D
 
 	private void OnAreaEnter(Area2D area)
 	{
-		if (area is Bullet bullet)
+		if (area is DamagingComponent dc)
 		{
-			GD.Print($"Taking {bullet.Damage} from current {healthComponent.Health}");
-			healthComponent.TakeDamage(bullet.Damage);
+			GD.Print($"Taking {dc.Damage} from current {healthComponent.Health}");
+			healthComponent.TakeDamage(dc.Damage);
 		}
 	}
 }

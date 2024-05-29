@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlfb5jdphph1h"]
+
+[ext_resource type="Script" path="res://Scripts/Components/DamagingComponent.cs" id="1_y7vi1"]
+
+[node name="DamagingComponent" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_y7vi1")
