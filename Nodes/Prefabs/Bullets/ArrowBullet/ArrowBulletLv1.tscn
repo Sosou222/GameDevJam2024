@@ -1,21 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck8xvro86pp2p"]
+[gd_scene load_steps=8 format=3 uid="uid://cyfthae8xahli"]
 
-[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_ovid3"]
-[ext_resource type="Texture2D" uid="uid://c33hyypimt84x" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Projectile.png" id="2_ajnwv"]
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_6l3fh"]
+[ext_resource type="Texture2D" uid="uid://c33hyypimt84x" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Projectile.png" id="2_x1iua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhwlq"]
 size = Vector2(6, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4q1ce"]
-atlas = ExtResource("2_ajnwv")
+atlas = ExtResource("2_x1iua")
 region = Rect2(0, 0, 8, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aw73u"]
-atlas = ExtResource("2_ajnwv")
+atlas = ExtResource("2_x1iua")
 region = Rect2(8, 0, 8, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8ytq"]
-atlas = ExtResource("2_ajnwv")
+atlas = ExtResource("2_x1iua")
 region = Rect2(16, 0, 8, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yom6y"]
@@ -37,7 +37,7 @@ animations = [{
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 2
-script = ExtResource("1_ovid3")
+script = ExtResource("1_6l3fh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 0)

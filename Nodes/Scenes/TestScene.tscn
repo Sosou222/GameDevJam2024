@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
 [ext_resource type="PackedScene" uid="uid://bd30lvvlnjs77" path="res://Nodes/Prefabs/Towers/ArrowTowers/ArrowTowerLv1.tscn" id="5_hs5ik"]
-[ext_resource type="PackedScene" uid="uid://ck8xvro86pp2p" path="res://Nodes/Prefabs/Bullets/Bullet.tscn" id="5_oafn8"]
+[ext_resource type="PackedScene" uid="uid://cyfthae8xahli" path="res://Nodes/Prefabs/Bullets/ArrowBullet/ArrowBulletLv1.tscn" id="5_vvd8s"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
 _data = {
@@ -17,9 +17,6 @@ point_count = 8
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("1_ykn36")
 
-[node name="ArrowTowerLv1" parent="GameManager" instance=ExtResource("5_hs5ik")]
-position = Vector2(462, 191)
-
 [node name="WaveManager" type="Node2D" parent="GameManager"]
 script = ExtResource("2_dvjyl")
 enemyPackedScene = ExtResource("1_efwuj")
@@ -29,5 +26,8 @@ curve = SubResource("Curve2D_20xkg")
 
 [node name="Timer" type="Timer" parent="GameManager/WaveManager"]
 
-[node name="Bullet" parent="GameManager" instance=ExtResource("5_oafn8")]
-position = Vector2(244, 62)
+[node name="ArrowTowerLv1" parent="GameManager" instance=ExtResource("5_hs5ik")]
+position = Vector2(429, 169)
+
+[node name="Bullet" parent="GameManager" instance=ExtResource("5_vvd8s")]
+position = Vector2(225, 65)
