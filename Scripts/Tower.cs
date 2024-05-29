@@ -19,22 +19,21 @@ public partial class Tower : Node2D
 	private AtlasTexture towerBaseAtlasTexture;
 
 
-	private Area2D area2D;
+	private EnemyDetectionComponent enemyDetectionComponent;
+
+	private List<Enemy> enemies => enemyDetectionComponent.enemies;
+
+
 	private Timer timer;
-
-
-	private List<Enemy> enemies = new();
 
 	private const int pixelAtlasSeperationX = 64;
 
 	public override void _Ready()
 	{
 		towerBaseAtlasTexture = GetNode<Sprite2D>("TowerBaseSprite").Texture as AtlasTexture;
-		area2D = GetNode<Area2D>("TowerDetectionRange");
+		enemyDetectionComponent = GetNode<EnemyDetectionComponent>("EnemyDetectionComponent");
 		timer = GetNode<Timer>("Timer");
 
-		area2D.AreaEntered += OnArea2DEnter;
-		area2D.AreaExited += OnArea2DExit;
 		timer.Timeout += Shoot;
 
 		weaponsHolders.Add(1, GetNode<Node2D>("Weapons/LV1"));
@@ -88,28 +87,6 @@ public partial class Tower : Node2D
 		currentSprites = currentWeaponHolder.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 		currentWeaponHolder.Visible = true;
-	}
-
-	private void OnArea2DEnter(Area2D area2D)
-	{
-		if (area2D is HitboxComponent hc)
-		{
-			if (hc.Owner is Enemy enemy)
-			{
-				enemies.Add(enemy);
-			}
-		}
-	}
-
-	private void OnArea2DExit(Area2D area2D)
-	{
-		if (area2D is HitboxComponent hc)
-		{
-			if (hc.Owner is Enemy enemy)
-			{
-				enemies.Remove(enemy);
-			}
-		}
 	}
 
 }
