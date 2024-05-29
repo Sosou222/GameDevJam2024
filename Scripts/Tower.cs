@@ -3,44 +3,35 @@ using System;
 
 using System.Collections.Generic;
 
+public enum WeaponBehavior
+{
+	Rotate,
+	StayInPlace
+}
+
 public partial class Tower : Node2D
 {
 
 	[Export] private PackedScene bulletScene;
+	[Export] private WeaponBehavior weaponBehavior = WeaponBehavior.Rotate;
 
 	private Node2D weaponHolder;
 	private Marker2D shootMarker;
 	private EnemyDetectionComponent enemyDetectionComponent;
+	private Timer timer;
 
 	private List<Enemy> enemies => enemyDetectionComponent.enemies;
-
-	private Tween shootTween;
 
 	private const int pixelAtlasSeperationX = 64;
 
 	public override void _Ready()
 	{
 		weaponHolder = GetNode<Node2D>("WeaponHolder");
+		timer = GetNode<Timer>("Timer");
 		shootMarker = weaponHolder.GetNode<Marker2D>("Marker2D");
 		enemyDetectionComponent = GetNode<EnemyDetectionComponent>("EnemyDetectionComponent");
-	}
 
-	public override void _Process(double delta)
-	{
-		if (shootTween == null)
-		{
-
-		}
-	}
-
-	private void TryShooting()
-	{
-		enemies.RemoveAll(e => e == null || !IsInstanceValid(e));
-		Enemy en = EnemiesManager.GetFirstEnemyInSightOrNull(enemies);
-		if (en != null)
-		{
-
-		}
+		timer.Timeout += Shoot;
 	}
 
 	private void Shoot()
@@ -49,8 +40,10 @@ public partial class Tower : Node2D
 		Enemy en = EnemiesManager.GetFirstEnemyInSightOrNull(enemies);
 		if (en != null)
 		{
-			//GD.Print($"Enemy {en.Name} progres:{en.ProgressRatio}");
-			weaponHolder.LookAt(en.GlobalPosition);
+			if (weaponBehavior == WeaponBehavior.Rotate)
+			{
+				weaponHolder.LookAt(en.GlobalPosition);
+			}
 			Vector2 dirToEnemy = (en.GlobalPosition - shootMarker.GlobalPosition).Normalized();
 
 			Bullet bullet = bulletScene.Instantiate<Bullet>();

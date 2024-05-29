@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
-[ext_resource type="PackedScene" uid="uid://bd30lvvlnjs77" path="res://Nodes/Prefabs/Towers/ArrowTowerLv1.tscn" id="5_hs5ik"]
+[ext_resource type="PackedScene" uid="uid://bd30lvvlnjs77" path="res://Nodes/Prefabs/Towers/ArrowTowers/ArrowTowerLv1.tscn" id="5_hs5ik"]
 [ext_resource type="PackedScene" uid="uid://ck8xvro86pp2p" path="res://Nodes/Prefabs/Bullets/Bullet.tscn" id="5_oafn8"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
