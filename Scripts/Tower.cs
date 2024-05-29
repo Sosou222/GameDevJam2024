@@ -10,6 +10,7 @@ public partial class Tower : Node2D
 
 	[Export] private Marker2D currentMarker;
 	[Export] private AnimatedSprite2D currentSprite;
+	[Export] private Node2D holder;
 
 	private int level = 1;
 
@@ -49,16 +50,15 @@ public partial class Tower : Node2D
 		if (en != null)
 		{
 			//GD.Print($"Enemy {en.Name} progres:{en.ProgressRatio}");
-			currentSprite.LookAt(en.GlobalPosition);
-			currentSprite.Rotate(Mathf.DegToRad(90.0f));
+			holder.LookAt(en.GlobalPosition);
 			Vector2 dirToEnemy = (en.GlobalPosition - currentMarker.GlobalPosition).Normalized();
 
 			Bullet bullet = bulletScene.Instantiate<Bullet>();
 			bullet.Init(dirToEnemy);
+			bullet.GlobalPosition = currentMarker.GlobalPosition;
 			bullet.LookAt(en.GlobalPosition);
-			bullet.Rotate(Mathf.DegToRad(-90.0f));
 
-			AddChild(bullet);
+			GetTree().Root.AddChild(bullet);
 		}
 	}
 
