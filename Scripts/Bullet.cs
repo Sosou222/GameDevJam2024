@@ -1,14 +1,22 @@
 using Godot;
 using System;
+using System.Linq;
+
+
+public enum MovementType
+{
+	Stationary,
+	InDirection,
+	TowardTarget
+}
 
 public partial class Bullet : Node2D
 {
-
-	public float Speed { get; private set; } = 300.0f;
-
 	private Vector2 direction = Vector2.Zero;
 
 	private DamagingComponent damagingComponent;
+
+	private IMovementComponent movementComponent;
 
 	public override void _Ready()
 	{
@@ -16,13 +24,9 @@ public partial class Bullet : Node2D
 		damagingComponent.HitBoxEntered += (hc) => QueueFree();
 	}
 
-	public void Init(Vector2 dir)
+	public void Init(Vector2 targetPos)
 	{
-		direction = dir;
-	}
-
-	public override void _PhysicsProcess(double delta)
-	{
-		GlobalPosition += direction * Speed * (float)delta;
+		movementComponent = GetChildren().OfType<IMovementComponent>().FirstOrDefault();
+		movementComponent.Init(targetPos);
 	}
 }

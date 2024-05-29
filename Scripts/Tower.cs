@@ -44,12 +44,11 @@ public partial class Tower : Node2D
 			{
 				weaponHolder.LookAt(en.GlobalPosition);
 			}
-			Vector2 dirToEnemy = (en.GlobalPosition - shootMarker.GlobalPosition).Normalized();
 
 			Bullet bullet = bulletScene.Instantiate<Bullet>();
-			bullet.Init(dirToEnemy);
 			bullet.GlobalPosition = shootMarker.GlobalPosition;
 			bullet.LookAt(en.GlobalPosition);
+			bullet.Init(en.GlobalPosition);
 
 			GetTree().Root.AddChild(bullet);
 		}

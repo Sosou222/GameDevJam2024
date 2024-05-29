@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://j5k418yfbmqt"]
+
+[ext_resource type="Script" path="res://Scripts/Components/MovementComponents/ToTargetMovementComponent.cs" id="1_tgo5j"]
+
+[node name="ToTargetMovementComponent" type="Node"]
+script = ExtResource("1_tgo5j")

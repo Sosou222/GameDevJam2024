@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0cadm3kd1i4n"]
+
+[ext_resource type="Script" path="res://Scripts/Components/MovementComponents/ToDirectionMovementComponent.cs" id="1_rwyba"]
+
+[node name="ToDirectionMovementComponent" type="Node"]
+script = ExtResource("1_rwyba")
