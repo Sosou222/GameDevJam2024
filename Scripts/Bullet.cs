@@ -27,6 +27,7 @@ public partial class Bullet : Node2D
 	public void Init(Vector2 targetPos)
 	{
 		movementComponent = GetChildren().OfType<IMovementComponent>().FirstOrDefault();
-		movementComponent.Init(targetPos);
+		if (movementComponent != null)
+			movementComponent.Init(targetPos);
 	}
 }
