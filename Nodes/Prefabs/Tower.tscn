@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dxkbi1s5ouiwk"]
+[gd_scene load_steps=41 format=3 uid="uid://dxkbi1s5ouiwk"]
 
 [ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="1_1omk5"]
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_5thdq"]
@@ -201,6 +201,34 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1tse"]
 radius = 203.062
 
+[sub_resource type="Animation" id="Animation_m5ljd"]
+resource_name = "Idle1"
+
+[sub_resource type="Animation" id="Animation_e67bq"]
+resource_name = "Idle2"
+
+[sub_resource type="Animation" id="Animation_wjgue"]
+resource_name = "Idle3"
+
+[sub_resource type="Animation" id="Animation_qbm0h"]
+resource_name = "Fire1"
+
+[sub_resource type="Animation" id="Animation_p4km7"]
+resource_name = "Fire2"
+
+[sub_resource type="Animation" id="Animation_pnd4c"]
+resource_name = "Fire3"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jdhdq"]
+_data = {
+"Fire1": SubResource("Animation_qbm0h"),
+"Fire2": SubResource("Animation_p4km7"),
+"Fire3": SubResource("Animation_pnd4c"),
+"Idle1": SubResource("Animation_m5ljd"),
+"Idle2": SubResource("Animation_e67bq"),
+"Idle3": SubResource("Animation_wjgue")
+}
+
 [node name="Tower" type="Node2D"]
 script = ExtResource("1_5thdq")
 bulletScene = ExtResource("2_ma5it")
@@ -251,5 +279,7 @@ rotation = 1.57079
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionComponent"]
 shape = SubResource("CircleShape2D_k1tse")
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jdhdq")
+}
