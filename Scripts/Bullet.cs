@@ -12,6 +12,7 @@ public enum MovementType
 
 public partial class Bullet : Node2D
 {
+	[Export] private PackedScene afterEffect;
 	private Vector2 direction = Vector2.Zero;
 
 	private DamagingComponent damagingComponent;
@@ -22,6 +23,8 @@ public partial class Bullet : Node2D
 	{
 		damagingComponent = GetNode<DamagingComponent>("DamagingComponent");
 		damagingComponent.HitBoxEntered += (hc) => QueueFree();
+
+		this.TreeExiting += CreateAfterEffect;
 	}
 
 	public void Init(Vector2 targetPos)
@@ -29,5 +32,13 @@ public partial class Bullet : Node2D
 		movementComponent = GetChildren().OfType<IMovementComponent>().FirstOrDefault();
 		if (movementComponent != null)
 			movementComponent.Init(targetPos);
+	}
+
+	private void CreateAfterEffect()
+	{
+		Node2D ae = afterEffect.Instantiate<Node2D>();
+		ae.GlobalPosition = this.GlobalPosition;
+
+		GetTree().Root.CallDeferred("add_child", ae);
 	}
 }

@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyfthae8xahli"]
+[gd_scene load_steps=11 format=3 uid="uid://cyfthae8xahli"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_6l3fh"]
+[ext_resource type="PackedScene" uid="uid://bb4ixmhns24uy" path="res://Nodes/Prefabs/AfterEffects/ArrowAfterEffect.tscn" id="2_0t72i"]
 [ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="2_05uhq"]
 [ext_resource type="Texture2D" uid="uid://c33hyypimt84x" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Projectile.png" id="2_x1iua"]
 [ext_resource type="PackedScene" uid="uid://j5k418yfbmqt" path="res://Nodes/Components/MovementComponents/ToTargetMovementComponent.tscn" id="4_ncnxg"]
@@ -39,6 +40,7 @@ animations = [{
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_6l3fh")
+afterEffect = ExtResource("2_0t72i")
 
 [node name="DamagingComponent" parent="." instance=ExtResource("2_05uhq")]
 position = Vector2(8, 0)
