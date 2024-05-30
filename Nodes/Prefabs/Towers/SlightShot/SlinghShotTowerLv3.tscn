@@ -1,0 +1,106 @@
+[gd_scene load_steps=17 format=3 uid="uid://db2s8e1p6h2k5"]
+
+[ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_6w60e"]
+[ext_resource type="PackedScene" uid="uid://dpudviprfo1vk" path="res://Nodes/Prefabs/Bullets/SlighShotBullet/SlingShotBulletLv3.tscn" id="2_w8prf"]
+[ext_resource type="Texture2D" uid="uid://ca0gabmsja3kw" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 03.png" id="3_bbkyd"]
+[ext_resource type="Texture2D" uid="uid://dmjpagbpu54hf" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 03/Tower 03 - Level 03 - Weapon.png" id="4_qn6dw"]
+[ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="5_i5415"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q1r0"]
+atlas = ExtResource("3_bbkyd")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpfqd"]
+atlas = ExtResource("4_qn6dw")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yrda"]
+atlas = ExtResource("4_qn6dw")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62eri"]
+atlas = ExtResource("4_qn6dw")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkfor"]
+atlas = ExtResource("4_qn6dw")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s86l"]
+atlas = ExtResource("4_qn6dw")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y4g0"]
+atlas = ExtResource("4_qn6dw")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnjk7"]
+atlas = ExtResource("4_qn6dw")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jq2x"]
+atlas = ExtResource("4_qn6dw")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e37il"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpfqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yrda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62eri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkfor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s86l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y4g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnjk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jq2x")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sp2i7"]
+radius = 250.072
+
+[node name="SlightShotTowerLv3" type="Node2D"]
+script = ExtResource("1_6w60e")
+bulletScene = ExtResource("2_w8prf")
+
+[node name="TowerBaseSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_5q1r0")
+
+[node name="WeaponHolder" type="Node2D" parent="."]
+position = Vector2(0, -27)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WeaponHolder"]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_e37il")
+animation = &"Fire"
+frame = 4
+
+[node name="Marker2D" type="Marker2D" parent="WeaponHolder"]
+position = Vector2(31, -9.53642e-07)
+rotation = 1.57079
+
+[node name="EnemyDetectionComponent" parent="." instance=ExtResource("5_i5415")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionComponent"]
+shape = SubResource("CircleShape2D_sp2i7")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

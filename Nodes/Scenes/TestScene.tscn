@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=11 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cyfthae8xahli" path="res://Nodes/Prefabs/Bullets/ArrowBullet/ArrowBulletLv1.tscn" id="5_vvd8s"]
 [ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="6_wm13c"]
 [ext_resource type="PackedScene" uid="uid://dhhi7r1r3xfv5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv1.tscn" id="7_kfk7o"]
+[ext_resource type="PackedScene" uid="uid://o0fv7d3gw5x6" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv2.tscn" id="8_nqxf4"]
+[ext_resource type="PackedScene" uid="uid://db2s8e1p6h2k5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv3.tscn" id="9_cdcki"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
 _data = {
@@ -37,5 +39,11 @@ position = Vector2(312, 449)
 [node name="SlightShotTower" parent="GameManager" instance=ExtResource("7_kfk7o")]
 position = Vector2(689, 197)
 
+[node name="SlightShotTowerLv2" parent="GameManager" instance=ExtResource("8_nqxf4")]
+position = Vector2(689, 97)
+
 [node name="Bullet" parent="GameManager" instance=ExtResource("5_vvd8s")]
 position = Vector2(225, 65)
+
+[node name="SlightShotTowerLv3" parent="GameManager" instance=ExtResource("9_cdcki")]
+position = Vector2(691, 36)

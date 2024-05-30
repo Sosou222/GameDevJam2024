@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://dpudviprfo1vk"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_4jnel"]
+[ext_resource type="PackedScene" uid="uid://bmu0h4a5jn3tw" path="res://Nodes/Prefabs/AfterEffects/SlingShotAfterEffect/SlingShotAfterEffectLv3.tscn" id="2_j5qlt"]
+[ext_resource type="Texture2D" uid="uid://cbftrkeqj4x72" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 03/Tower 03 - Level 03 - Projectile.png" id="3_wkg5x"]
+[ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="4_q0qf1"]
+[ext_resource type="PackedScene" uid="uid://0cadm3kd1i4n" path="res://Nodes/Components/MovementComponents/ToDirectionMovementComponent.tscn" id="5_php24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r41a1"]
+atlas = ExtResource("3_wkg5x")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1ndn"]
+atlas = ExtResource("3_wkg5x")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy8rl"]
+atlas = ExtResource("3_wkg5x")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10ksd"]
+atlas = ExtResource("3_wkg5x")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75onu"]
+atlas = ExtResource("3_wkg5x")
+region = Rect2(40, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qhw2"]
+atlas = ExtResource("3_wkg5x")
+region = Rect2(50, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjdl8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r41a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1ndn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy8rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10ksd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75onu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qhw2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykusj"]
+radius = 7.0
+
+[node name="SlingShotBulletLv3" type="Node2D"]
+script = ExtResource("1_4jnel")
+afterEffect = ExtResource("2_j5qlt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hjdl8")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="DamagingComponent" parent="." instance=ExtResource("4_q0qf1")]
+Damage = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
+shape = SubResource("CircleShape2D_ykusj")
+
+[node name="ToDirectionMovementComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("5_php24")]
+owner = NodePath("..")
