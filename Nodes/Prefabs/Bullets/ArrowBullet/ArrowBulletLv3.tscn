@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxgjbtajj2oxc"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_pjipk"]
+[ext_resource type="PackedScene" uid="uid://bb4ixmhns24uy" path="res://Nodes/Prefabs/AfterEffects/ArrowAfterEffect.tscn" id="2_oia1n"]
+[ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="3_lqew0"]
+[ext_resource type="Texture2D" uid="uid://xdl4aoluyo63" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 03 - Projectile.png" id="4_438fv"]
+[ext_resource type="PackedScene" uid="uid://0cadm3kd1i4n" path="res://Nodes/Components/MovementComponents/ToDirectionMovementComponent.tscn" id="5_ss68w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gsvu"]
+size = Vector2(6, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f10qn"]
+atlas = ExtResource("4_438fv")
+region = Rect2(0, 0, 22, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8of3"]
+atlas = ExtResource("4_438fv")
+region = Rect2(22, 0, 22, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8rnk"]
+atlas = ExtResource("4_438fv")
+region = Rect2(44, 0, 22, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nufn6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f10qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8of3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8rnk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_pjipk")
+afterEffect = ExtResource("2_oia1n")
+
+[node name="DamagingComponent" parent="." instance=ExtResource("3_lqew0")]
+position = Vector2(8, 0)
+rotation = 1.57079
+Damage = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
+shape = SubResource("RectangleShape2D_8gsvu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.57079
+sprite_frames = SubResource("SpriteFrames_nufn6")
+autoplay = "default"
+frame = 2
+frame_progress = 0.121945
+
+[node name="ToDirectionMovementComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("5_ss68w")]
+owner = NodePath("..")

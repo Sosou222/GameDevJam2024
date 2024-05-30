@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://bg4wd4p77t0ld"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_q3tb5"]
+[ext_resource type="PackedScene" uid="uid://bb4ixmhns24uy" path="res://Nodes/Prefabs/AfterEffects/ArrowAfterEffect.tscn" id="2_udxy4"]
+[ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="3_cenhv"]
+[ext_resource type="Texture2D" uid="uid://sass6vafqo0y" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 02 - Projectile.png" id="3_e1451"]
+[ext_resource type="PackedScene" uid="uid://0cadm3kd1i4n" path="res://Nodes/Components/MovementComponents/ToDirectionMovementComponent.tscn" id="5_x1exr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr72i"]
+size = Vector2(14, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdy5b"]
+atlas = ExtResource("3_e1451")
+region = Rect2(0, 0, 15, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thnlh"]
+atlas = ExtResource("3_e1451")
+region = Rect2(15, 0, 15, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01j25"]
+atlas = ExtResource("3_e1451")
+region = Rect2(30, 0, 15, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jm2eq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdy5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thnlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01j25")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 9.0
+}]
+
+[node name="ArrowBulletLv2" type="Node2D"]
+script = ExtResource("1_q3tb5")
+afterEffect = ExtResource("2_udxy4")
+
+[node name="DamagingComponent" parent="." instance=ExtResource("3_cenhv")]
+position = Vector2(8, 0)
+rotation = 1.57079
+Damage = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
+position = Vector2(-3.63798e-12, 4.76837e-07)
+shape = SubResource("RectangleShape2D_dr72i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.57079
+sprite_frames = SubResource("SpriteFrames_jm2eq")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 1
+frame_progress = 0.331495
+
+[node name="ToDirectionMovementComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("5_x1exr")]
+owner = NodePath("..")
