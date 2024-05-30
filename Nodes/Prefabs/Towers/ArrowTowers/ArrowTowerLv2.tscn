@@ -60,7 +60,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_beni1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfb36"]
 radius = 203.062
 
 [node name="ArrowTowerLv2" type="Node2D"]
@@ -86,7 +86,7 @@ rotation = 1.57079
 [node name="EnemyDetectionComponent" parent="." instance=ExtResource("5_f2rnd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionComponent"]
-shape = SubResource("CircleShape2D_beni1")
+shape = SubResource("CircleShape2D_yfb36")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
