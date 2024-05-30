@@ -36,6 +36,8 @@ public partial class Bullet : Node2D
 
 	private void CreateAfterEffect()
 	{
+		if (afterEffect == null)
+			return;
 		Node2D ae = afterEffect.Instantiate<Node2D>();
 		ae.GlobalPosition = this.GlobalPosition;
 

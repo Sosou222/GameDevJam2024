@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=9 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bd30lvvlnjs77" path="res://Nodes/Prefabs/Towers/ArrowTowers/ArrowTowerLv1.tscn" id="5_hs5ik"]
 [ext_resource type="PackedScene" uid="uid://cyfthae8xahli" path="res://Nodes/Prefabs/Bullets/ArrowBullet/ArrowBulletLv1.tscn" id="5_vvd8s"]
 [ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="6_wm13c"]
+[ext_resource type="PackedScene" uid="uid://dhhi7r1r3xfv5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv1.tscn" id="7_kfk7o"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
 _data = {
@@ -28,10 +29,13 @@ curve = SubResource("Curve2D_20xkg")
 [node name="Timer" type="Timer" parent="GameManager/WaveManager"]
 
 [node name="ArrowTowerLv1" parent="GameManager" instance=ExtResource("5_hs5ik")]
-position = Vector2(429, 169)
+position = Vector2(629, 483)
 
 [node name="MageTowerLv1" parent="GameManager" instance=ExtResource("6_wm13c")]
-position = Vector2(165, 174)
+position = Vector2(365, 488)
 
 [node name="Bullet" parent="GameManager" instance=ExtResource("5_vvd8s")]
 position = Vector2(225, 65)
+
+[node name="SlightShotTower" parent="." instance=ExtResource("7_kfk7o")]
+position = Vector2(284, 180)

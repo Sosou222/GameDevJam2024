@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://mkf5rkvn37wq"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_44drv"]
+[ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="1_jfeh7"]
+[ext_resource type="Texture2D" uid="uid://bmpxq6ttg1ys6" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 01 - Projectile.png" id="2_52l1y"]
+[ext_resource type="PackedScene" uid="uid://dr8oj7m3reuqu" path="res://Nodes/Prefabs/AfterEffects/MageAfterEffect/MageAfterEffectLv1.tscn" id="2_nkw2n"]
+[ext_resource type="PackedScene" uid="uid://j5k418yfbmqt" path="res://Nodes/Components/MovementComponents/ToTargetMovementComponent.tscn" id="3_62evs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thrsd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7s4w"]
+atlas = ExtResource("2_52l1y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njap0"]
+atlas = ExtResource("2_52l1y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cduxm"]
+atlas = ExtResource("2_52l1y")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4eqk"]
+atlas = ExtResource("2_52l1y")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smlr"]
+atlas = ExtResource("2_52l1y")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjlks"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7s4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njap0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cduxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4eqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smlr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 9.0
+}]
+
+[node name="MageBulletLv1" type="Node2D"]
+script = ExtResource("1_44drv")
+afterEffect = ExtResource("2_nkw2n")
+
+[node name="DamagingComponent" parent="." instance=ExtResource("1_jfeh7")]
+Damage = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
+shape = SubResource("RectangleShape2D_thrsd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qjlks")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="ToTargetMovementComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("3_62evs")]
+owner = NodePath("..")
