@@ -1,33 +1,33 @@
 [gd_scene load_steps=14 format=3 uid="uid://t6c5ytjcnllm"]
 
-[ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="1_22h7l"]
-[ext_resource type="Texture2D" uid="uid://brxrh2dgf7ww5" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 03/Tower 03 - Level 01 - Projectile.png" id="1_lr0yj"]
-[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_r0ym5"]
-[ext_resource type="PackedScene" uid="uid://ytrbide1qa4t" path="res://Nodes/Prefabs/AfterEffects/SlingShotAfterEffect/SlingShotAfterEffectLv1.tscn" id="2_enow1"]
-[ext_resource type="PackedScene" uid="uid://0cadm3kd1i4n" path="res://Nodes/Components/MovementComponents/ToDirectionMovementComponent.tscn" id="2_fr242"]
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_ps1fi"]
+[ext_resource type="PackedScene" uid="uid://ytrbide1qa4t" path="res://Nodes/Prefabs/AfterEffects/SlingShotAfterEffect/SlingShotAfterEffectLv1.tscn" id="2_4ldkw"]
+[ext_resource type="Texture2D" uid="uid://brxrh2dgf7ww5" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 03/Tower 03 - Level 01 - Projectile.png" id="3_vb8tf"]
+[ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="4_idjd3"]
+[ext_resource type="PackedScene" uid="uid://0cadm3kd1i4n" path="res://Nodes/Components/MovementComponents/ToDirectionMovementComponent.tscn" id="5_lt1ju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rt1s4"]
-atlas = ExtResource("1_lr0yj")
+atlas = ExtResource("3_vb8tf")
 region = Rect2(0, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_opkdc"]
-atlas = ExtResource("1_lr0yj")
+atlas = ExtResource("3_vb8tf")
 region = Rect2(10, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsugl"]
-atlas = ExtResource("1_lr0yj")
+atlas = ExtResource("3_vb8tf")
 region = Rect2(20, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7gwpi"]
-atlas = ExtResource("1_lr0yj")
+atlas = ExtResource("3_vb8tf")
 region = Rect2(30, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5ltv"]
-atlas = ExtResource("1_lr0yj")
+atlas = ExtResource("3_vb8tf")
 region = Rect2(40, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jx7l"]
-atlas = ExtResource("1_lr0yj")
+atlas = ExtResource("3_vb8tf")
 region = Rect2(50, 0, 10, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1jvsi"]
@@ -59,9 +59,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykusj"]
 radius = 7.0
 
-[node name="SlighShotBulletLv1" type="Node2D"]
-script = ExtResource("1_r0ym5")
-afterEffect = ExtResource("2_enow1")
+[node name="SlingShotBulletLv1" type="Node2D"]
+script = ExtResource("1_ps1fi")
+afterEffect = ExtResource("2_4ldkw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1jvsi")
@@ -70,10 +70,11 @@ autoplay = "Idle"
 frame = 2
 frame_progress = 0.0228563
 
-[node name="DamagingComponent" parent="." instance=ExtResource("1_22h7l")]
+[node name="DamagingComponent" parent="." instance=ExtResource("4_idjd3")]
+Damage = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
 shape = SubResource("CircleShape2D_ykusj")
 
-[node name="ToDirectionMovementComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("2_fr242")]
+[node name="ToDirectionMovementComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("5_lt1ju")]
 owner = NodePath("..")

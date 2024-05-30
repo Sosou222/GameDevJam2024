@@ -32,10 +32,10 @@ curve = SubResource("Curve2D_20xkg")
 position = Vector2(629, 483)
 
 [node name="MageTowerLv1" parent="GameManager" instance=ExtResource("6_wm13c")]
-position = Vector2(365, 488)
+position = Vector2(312, 449)
+
+[node name="SlightShotTower" parent="GameManager" instance=ExtResource("7_kfk7o")]
+position = Vector2(689, 197)
 
 [node name="Bullet" parent="GameManager" instance=ExtResource("5_vvd8s")]
 position = Vector2(225, 65)
-
-[node name="SlightShotTower" parent="." instance=ExtResource("7_kfk7o")]
-position = Vector2(284, 180)

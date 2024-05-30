@@ -1,0 +1,173 @@
+[gd_scene load_steps=14 format=3 uid="uid://cl2q7yaxr4kqs"]
+
+[ext_resource type="Texture2D" uid="uid://deudoi36uhv5n" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 03/Tower 03 - Level 02 - Projectile - Impact.png" id="1_vab7j"]
+[ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="2_7xh6c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1o6t"]
+atlas = ExtResource("1_vab7j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amppj"]
+atlas = ExtResource("1_vab7j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50roo"]
+atlas = ExtResource("1_vab7j")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhwe2"]
+atlas = ExtResource("1_vab7j")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy6ee"]
+atlas = ExtResource("1_vab7j")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adty0"]
+atlas = ExtResource("1_vab7j")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rv4qi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1o6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amppj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50roo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhwe2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy6ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adty0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqefi"]
+size = Vector2(34, 32)
+
+[sub_resource type="Animation" id="Animation_pm86i"]
+resource_name = "Effect"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamagingComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.8, 0.9, 1.2, 1.3, 1.6, 1.7, 2, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qewga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamagingComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5t45i"]
+_data = {
+"Effect": SubResource("Animation_pm86i"),
+"RESET": SubResource("Animation_qewga")
+}
+
+[node name="SlingShotAfterEffectLv2" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rv4qi")
+
+[node name="DamagingComponent" parent="." instance=ExtResource("2_7xh6c")]
+Damage = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
+shape = SubResource("RectangleShape2D_xqefi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5t45i")
+}
+autoplay = "Effect"
