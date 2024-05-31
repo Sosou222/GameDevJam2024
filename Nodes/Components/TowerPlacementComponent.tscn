@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ctu3v810fssuq"]
+
+[node name="TowerPlacementComponent" type="Area2D"]
+process_mode = 3
+modulate = Color(0.662837, 0.123054, 0.228474, 1)
+collision_layer = 4
+collision_mask = 4

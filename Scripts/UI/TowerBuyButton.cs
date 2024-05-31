@@ -31,6 +31,7 @@ public partial class TowerBuyButton : Button
 		isDraging = false;
 
 		tmpTower.ProcessMode = ProcessModeEnum.Inherit;
+		tmpTower.TowerPlacementComponent.ProcessMode = ProcessModeEnum.Inherit;
 		tmpTower = null;
 	}
 
@@ -44,6 +45,19 @@ public partial class TowerBuyButton : Button
 		if (inputEvent is InputEventMouseMotion motion)
 		{
 			tmpTower.GlobalPosition = motion.GlobalPosition;
+			CheckPlacement();
+		}
+	}
+
+	private void CheckPlacement()
+	{
+		if (tmpTower.TowerPlacementComponent.GetOverlappingAreas().Count == 0)
+		{
+			tmpTower.Modulate = Colors.Lime;
+		}
+		else
+		{
+			tmpTower.Modulate = Colors.Red;
 		}
 	}
 

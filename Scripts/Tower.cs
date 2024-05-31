@@ -15,6 +15,8 @@ public partial class Tower : Node2D
 	[Export] private PackedScene bulletScene;
 	[Export] private WeaponBehavior weaponBehavior = WeaponBehavior.Rotate;
 
+	public Area2D TowerPlacementComponent { private set; get; }
+
 	private Node2D weaponHolder;
 	private Marker2D shootMarker;
 	private EnemyDetectionComponent enemyDetectionComponent;
@@ -30,6 +32,9 @@ public partial class Tower : Node2D
 		timer = GetNode<Timer>("Timer");
 		shootMarker = weaponHolder.GetNode<Marker2D>("Marker2D");
 		enemyDetectionComponent = GetNode<EnemyDetectionComponent>("EnemyDetectionComponent");
+
+		//tmp node or null
+		TowerPlacementComponent = GetNodeOrNull<Area2D>("TowerPlacementComponent");
 
 		timer.Timeout += Shoot;
 	}
