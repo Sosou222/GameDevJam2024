@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://qmsw54givcgq"]
+[gd_scene load_steps=7 format=3 uid="uid://qmsw54givcgq"]
 
-[ext_resource type="PackedScene" uid="uid://brittwdnofdwo" path="res://Nodes/UI/TowerBuyPanel.tscn" id="1_rktxv"]
+[ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="2_6gv87"]
+[ext_resource type="Script" path="res://Scripts/UI/TowerBuyButton.cs" id="2_enm5i"]
+[ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="2_mno7n"]
+[ext_resource type="Texture2D" uid="uid://yiil44m7t6m4" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Weapon.png" id="3_au0xl"]
 
-[node name="Ui" type="CanvasLayer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc7qm"]
+atlas = ExtResource("2_mno7n")
+region = Rect2(0, 24, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv7up"]
+atlas = ExtResource("3_au0xl")
+region = Rect2(24, 24, 48, 48)
+
+[node name="UI" type="CanvasLayer"]
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 11
@@ -13,11 +24,31 @@ offset_left = -207.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
+mouse_filter = 1
 
 [node name="FlowContainer" type="FlowContainer" parent="Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 94.0
+offset_bottom = 45.0
 
-[node name="TowerBuyPanel" parent="Panel/FlowContainer" instance=ExtResource("1_rktxv")]
+[node name="TowerBuyButton" type="Button" parent="Panel"]
 layout_mode = 2
+offset_left = 116.0
+offset_top = 89.0
+offset_right = 155.0
+offset_bottom = 131.0
+script = ExtResource("2_enm5i")
+towerScene = ExtResource("2_6gv87")
+
+[node name="Node2D" type="Node2D" parent="Panel/TowerBuyButton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TowerBuyButton/Node2D"]
+position = Vector2(20, 18)
+scale = Vector2(0.359375, 0.359375)
+texture = SubResource("AtlasTexture_jc7qm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel/TowerBuyButton/Node2D"]
+position = Vector2(20, 11)
+rotation = 1.5708
+scale = Vector2(0.359, 0.359)
+texture = SubResource("AtlasTexture_lv7up")

@@ -1,8 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://brittwdnofdwo"]
+[gd_scene load_steps=6 format=3 uid="uid://djk4k86oelxfl"]
 
 [ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="1_lvtkc"]
-[ext_resource type="Script" path="res://Scripts/UI/TowerBuyPanel.cs" id="1_s8glv"]
 [ext_resource type="Texture2D" uid="uid://yiil44m7t6m4" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Weapon.png" id="2_asgxk"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_hxrsv"]
+script/source = "using Godot;
+using System;
+
+public partial class TowerBuyPanel : Panel
+{
+	[Export] PackedScene towerScene;
+
+
+	public override void _Ready()
+	{
+		this.GuiInput += OnGuiInput;
+	}
+
+	private void OnGuiInput(InputEvent inputEvent)
+	{
+		string action = \"UILeftClick\";
+		if (inputEvent is InputEventMouseButton button)
+		{
+			if (button.IsActionPressed(action))
+			{
+				GD.Print(\"Action Pressed\");
+			}
+			else if (button.IsActionReleased(action))
+			{
+				GD.Print(\"Action Released\");
+			}
+		}
+		else if (inputEvent is InputEventMouseMotion motion)
+		{
+			GD.Print(\"Action Hold\");
+			if (motion.IsActionPressed(action))
+			{
+				GD.Print(\"Action Hold\");
+			}
+		}
+
+	}
+}
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_331sg"]
 atlas = ExtResource("1_lvtkc")
@@ -15,7 +55,7 @@ region = Rect2(24, 24, 48, 48)
 [node name="TowerBuyPanel" type="Panel"]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_s8glv")
+script = SubResource("CSharpScript_hxrsv")
 
 [node name="Node2D" type="Node2D" parent="."]
 
