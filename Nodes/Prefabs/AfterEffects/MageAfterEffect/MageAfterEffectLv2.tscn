@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdgh5fbpilu3f"]
+
+[ext_resource type="Texture2D" uid="uid://c1hi1dxaqfhd6" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 02 - Projectile - Impact.png" id="1_ocyvc"]
+[ext_resource type="PackedScene" uid="uid://dlfb5jdphph1h" path="res://Nodes/Components/DamagingComponent.tscn" id="2_8dy0w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sik15"]
+atlas = ExtResource("1_ocyvc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2ytm"]
+atlas = ExtResource("1_ocyvc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egc57"]
+atlas = ExtResource("1_ocyvc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjg5e"]
+atlas = ExtResource("1_ocyvc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss0s5"]
+atlas = ExtResource("1_ocyvc")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2464"]
+atlas = ExtResource("1_ocyvc")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dq33j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sik15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2ytm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egc57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjg5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss0s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2464")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_t7jga"]
+resource_name = "Effect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamagingComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpaph"]
+_data = {
+"Effect": SubResource("Animation_t7jga")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmxum"]
+size = Vector2(32, 31)
+
+[node name="MageAfterEffectLv2" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_dq33j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lpaph")
+}
+autoplay = "Effect"
+
+[node name="DamagingComponent" parent="." instance=ExtResource("2_8dy0w")]
+Damage = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_pmxum")
+disabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=15 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="6_wm13c"]
 [ext_resource type="PackedScene" uid="uid://dhhi7r1r3xfv5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv1.tscn" id="7_kfk7o"]
 [ext_resource type="PackedScene" uid="uid://o0fv7d3gw5x6" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv2.tscn" id="8_nqxf4"]
+[ext_resource type="PackedScene" uid="uid://lenu04cym04r" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv2.tscn" id="8_pmypt"]
+[ext_resource type="PackedScene" uid="uid://ghogiessd6wp" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv3.tscn" id="9_1t80p"]
 [ext_resource type="PackedScene" uid="uid://db2s8e1p6h2k5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv3.tscn" id="9_cdcki"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
@@ -33,6 +35,7 @@ curve = SubResource("Curve2D_20xkg")
 [node name="Timer" type="Timer" parent="GameManager/WaveManager"]
 
 [node name="ArrowTowers" type="Node2D" parent="GameManager"]
+position = Vector2(729, 200)
 
 [node name="ArrowTowerLv1" parent="GameManager/ArrowTowers" instance=ExtResource("5_hs5ik")]
 position = Vector2(686, 262)
@@ -43,8 +46,16 @@ position = Vector2(679, 167)
 [node name="ArrowTowerLv3" parent="GameManager/ArrowTowers" instance=ExtResource("6_r6r87")]
 position = Vector2(684, 63)
 
-[node name="MageTowerLv1" parent="GameManager" instance=ExtResource("6_wm13c")]
-position = Vector2(312, 449)
+[node name="MageTowers" type="Node2D" parent="GameManager"]
+
+[node name="MageTowerLv1" parent="GameManager/MageTowers" instance=ExtResource("6_wm13c")]
+position = Vector2(549, 211)
+
+[node name="MageTowerLv2" parent="GameManager/MageTowers" instance=ExtResource("8_pmypt")]
+position = Vector2(678, 194)
+
+[node name="MageTowerLv3" parent="GameManager/MageTowers" instance=ExtResource("9_1t80p")]
+position = Vector2(687, 70)
 
 [node name="SlingShotTowers" type="Node2D" parent="GameManager"]
 position = Vector2(1068, 234)
