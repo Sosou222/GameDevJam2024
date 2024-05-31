@@ -32,6 +32,7 @@ public partial class TowerBuyButton : Button
 
 		tmpTower.ProcessMode = ProcessModeEnum.Inherit;
 		tmpTower.TowerPlacementComponent.ProcessMode = ProcessModeEnum.Inherit;
+		tmpTower.Modulate = Colors.White;
 		tmpTower = null;
 	}
 
