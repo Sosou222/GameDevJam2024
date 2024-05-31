@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://brittwdnofdwo"]
+
+[ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="1_lvtkc"]
+[ext_resource type="Script" path="res://Scripts/UI/TowerBuyPanel.cs" id="1_s8glv"]
+[ext_resource type="Texture2D" uid="uid://yiil44m7t6m4" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Weapon.png" id="2_asgxk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_331sg"]
+atlas = ExtResource("1_lvtkc")
+region = Rect2(0, 24, 64, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1rey"]
+atlas = ExtResource("2_asgxk")
+region = Rect2(24, 24, 48, 48)
+
+[node name="TowerBuyPanel" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s8glv")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(20, 18)
+scale = Vector2(0.359375, 0.359375)
+texture = SubResource("AtlasTexture_331sg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+position = Vector2(20, 11)
+rotation = 1.5708
+scale = Vector2(0.359, 0.359)
+texture = SubResource("AtlasTexture_w1rey")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://qmsw54givcgq"]
+
+[ext_resource type="PackedScene" uid="uid://brittwdnofdwo" path="res://Nodes/UI/TowerBuyPanel.tscn" id="1_rktxv"]
+
+[node name="Ui" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -207.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TowerBuyPanel" parent="Panel/FlowContainer" instance=ExtResource("1_rktxv")]
+layout_mode = 2
