@@ -55,7 +55,7 @@ public partial class Tower : Node2D
 			bullet.LookAt(en.GlobalPosition);
 			bullet.Init(en.GlobalPosition);
 
-			GetTree().Root.AddChild(bullet);
+			GameManager.Instance.BulletHolder.AddChild(bullet);
 		}
 	}
 

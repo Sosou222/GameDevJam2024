@@ -41,6 +41,6 @@ public partial class Bullet : Node2D
 		Node2D ae = afterEffect.Instantiate<Node2D>();
 		ae.GlobalPosition = this.GlobalPosition;
 
-		GetTree().Root.CallDeferred("add_child", ae);
+		GameManager.Instance.AfterEffectHolder.CallDeferred("add_child", ae);
 	}
 }

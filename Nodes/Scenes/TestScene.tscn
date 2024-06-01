@@ -18,7 +18,7 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dhww"]
 texture = ExtResource("2_pghdu")
-texture_region_size = Vector2i(64, 64)
+texture_region_size = Vector2i(1, 1)
 2:1/0 = 0
 5:1/0 = 0
 6:1/0 = 0
@@ -169,7 +169,9 @@ curve = SubResource("Curve2D_20xkg")
 
 [node name="BulletHolder" type="Node2D" parent="GameManager"]
 
-[node name="AfterEffectHolder" parent="GameManager" instance=ExtResource("5_vvd8s")]
+[node name="AfterEffectHolder" type="Node2D" parent="GameManager"]
+
+[node name="ArrowBullet" parent="GameManager" instance=ExtResource("5_vvd8s")]
 position = Vector2(225, 65)
 
 [node name="ArrowTowers" type="Node2D" parent="GameManager"]
@@ -206,7 +208,5 @@ position = Vector2(689, 97)
 
 [node name="SlightShotTowerLv3" parent="GameManager/SlingShotTowers" instance=ExtResource("9_cdcki")]
 position = Vector2(691, 36)
-
-[node name="Node2D" type="Node2D" parent="GameManager"]
 
 [node name="Ui" parent="." instance=ExtResource("14_ri3b1")]
