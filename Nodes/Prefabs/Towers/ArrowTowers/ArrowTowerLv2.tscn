@@ -111,4 +111,5 @@ position = Vector2(1, 29.5)
 shape = SubResource("RectangleShape2D_lul3d")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
