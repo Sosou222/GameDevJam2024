@@ -45,9 +45,10 @@ curve = SubResource("Curve2D_20xkg")
 [node name="Timer" type="Timer" parent="GameManager/WaveManager"]
 
 [node name="TowerHolder" type="Node2D" parent="GameManager"]
+y_sort_enabled = true
 
 [node name="MageTowerLv1" parent="GameManager/TowerHolder" instance=ExtResource("5_c7dmo")]
-position = Vector2(1668, 148)
+position = Vector2(1669, 196)
 
 [node name="MageTowerLv2" parent="GameManager/TowerHolder" instance=ExtResource("6_xs27h")]
 position = Vector2(1670, 265)
