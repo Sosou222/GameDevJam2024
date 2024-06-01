@@ -9,6 +9,8 @@ public partial class TowerBuyButton : Button
 
 	private Tower tmpTower;
 
+	private bool canBePlaced = false;
+
 	public override void _Ready()
 	{
 		this.ButtonDown += OnButtonDown;
@@ -30,9 +32,16 @@ public partial class TowerBuyButton : Button
 		GD.Print("ButtonUp");
 		isDraging = false;
 
-		tmpTower.ProcessMode = ProcessModeEnum.Inherit;
-		tmpTower.TowerPlacementComponent.ProcessMode = ProcessModeEnum.Inherit;
-		tmpTower.Modulate = Colors.White;
+		if (canBePlaced)
+		{
+			tmpTower.ProcessMode = ProcessModeEnum.Inherit;
+			tmpTower.TowerPlacementComponent.ProcessMode = ProcessModeEnum.Inherit;
+			tmpTower.Modulate = Colors.White;
+		}
+		else
+		{
+			tmpTower.QueueFree();
+		}
 		tmpTower = null;
 	}
 
@@ -47,12 +56,18 @@ public partial class TowerBuyButton : Button
 		{
 			tmpTower.GlobalPosition = motion.GlobalPosition;
 			CheckPlacement();
+			ChangeColor();
 		}
 	}
 
 	private void CheckPlacement()
 	{
-		if (tmpTower.TowerPlacementComponent.GetOverlappingAreas().Count == 0 && tmpTower.TowerPlacementComponent.GetOverlappingBodies().Count == 0)
+		canBePlaced = tmpTower.TowerPlacementComponent.GetOverlappingAreas().Count == 0 && tmpTower.TowerPlacementComponent.GetOverlappingBodies().Count == 0;
+	}
+
+	private void ChangeColor()
+	{
+		if (canBePlaced)
 		{
 			tmpTower.Modulate = Colors.Lime;
 		}
