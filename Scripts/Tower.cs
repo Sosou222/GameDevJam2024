@@ -54,7 +54,7 @@ public partial class Tower : Node2D
 		shootTween = CreateTween();
 		shootTween.TweenProperty(animatedSprite2D, "frame", animatedSprite2D.SpriteFrames.GetFrameCount("Fire"), ShootInterval).From(0);
 		shootTween.TweenCallback(Callable.From(() => animatedSprite2D.Play("Idle")));
-		shootTween.TweenProperty(this, "canShoot", true, 0.00001f);
+		shootTween.TweenCallback(Callable.From(() => canShoot = true));
 	}
 
 	private void Shoot()
