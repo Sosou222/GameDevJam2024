@@ -28,6 +28,9 @@ public partial class TowerBuyButton : Button
 
 	private void OnButtonUp()
 	{
+		if (!isDraging)
+			return;
+
 		isDraging = false;
 
 		if (canBePlaced)
