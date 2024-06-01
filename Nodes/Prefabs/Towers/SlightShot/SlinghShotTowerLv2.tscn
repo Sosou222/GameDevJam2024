@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://o0fv7d3gw5x6"]
+[gd_scene load_steps=20 format=3 uid="uid://o0fv7d3gw5x6"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_xjb6u"]
 [ext_resource type="PackedScene" uid="uid://b07mgax2mu0yt" path="res://Nodes/Prefabs/Bullets/SlighShotBullet/SlingShotBulletLv2.tscn" id="2_o3yni"]
@@ -11,67 +11,79 @@
 atlas = ExtResource("3_as06m")
 region = Rect2(64, 0, 64, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o0l36"]
-atlas = ExtResource("4_ouofv")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir7mr"]
-atlas = ExtResource("4_ouofv")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bx04"]
-atlas = ExtResource("4_ouofv")
-region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_au810"]
-atlas = ExtResource("4_ouofv")
-region = Rect2(288, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4mrib"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbf43"]
 atlas = ExtResource("4_ouofv")
 region = Rect2(384, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dp06a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u0vx"]
 atlas = ExtResource("4_ouofv")
 region = Rect2(480, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_710bt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_scrm8"]
 atlas = ExtResource("4_ouofv")
 region = Rect2(576, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdtyj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lnk2"]
 atlas = ExtResource("4_ouofv")
 region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fevu4"]
+atlas = ExtResource("4_ouofv")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktcx1"]
+atlas = ExtResource("4_ouofv")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5qfu"]
+atlas = ExtResource("4_ouofv")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qneq"]
+atlas = ExtResource("4_ouofv")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkwv2"]
+atlas = ExtResource("4_ouofv")
+region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2rita"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o0l36")
+"texture": SubResource("AtlasTexture_jbf43")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ir7mr")
+"texture": SubResource("AtlasTexture_2u0vx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4bx04")
+"texture": SubResource("AtlasTexture_scrm8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_au810")
+"texture": SubResource("AtlasTexture_8lnk2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4mrib")
+"texture": SubResource("AtlasTexture_fevu4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dp06a")
+"texture": SubResource("AtlasTexture_ktcx1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_710bt")
+"texture": SubResource("AtlasTexture_b5qfu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rdtyj")
+"texture": SubResource("AtlasTexture_2qneq")
 }],
 "loop": true,
 "name": &"Fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkwv2")
+}],
+"loop": true,
+"name": &"Idle",
 "speed": 5.0
 }]
 
@@ -94,8 +106,8 @@ position = Vector2(0, -17)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WeaponHolder"]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_2rita")
-animation = &"Fire"
-frame = 4
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="Marker2D" type="Marker2D" parent="WeaponHolder"]
 position = Vector2(33, -5.81741e-05)

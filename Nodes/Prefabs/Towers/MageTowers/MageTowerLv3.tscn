@@ -11,22 +11,6 @@
 atlas = ExtResource("3_hcaqp")
 region = Rect2(128, 64, 64, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfkxe"]
-atlas = ExtResource("4_rygg4")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_frkj2"]
-atlas = ExtResource("4_rygg4")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dnr4h"]
-atlas = ExtResource("4_rygg4")
-region = Rect2(128, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4xrd"]
-atlas = ExtResource("4_rygg4")
-region = Rect2(192, 64, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hyc7"]
 atlas = ExtResource("4_rygg4")
 region = Rect2(256, 64, 64, 64)
@@ -86,6 +70,22 @@ region = Rect2(1088, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtmcj"]
 atlas = ExtResource("4_rygg4")
 region = Rect2(1152, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfkxe"]
+atlas = ExtResource("4_rygg4")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frkj2"]
+atlas = ExtResource("4_rygg4")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnr4h"]
+atlas = ExtResource("4_rygg4")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4xrd"]
+atlas = ExtResource("4_rygg4")
+region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_alk54"]
 atlas = ExtResource("4_rygg4")
@@ -171,18 +171,6 @@ region = Rect2(1216, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nfkxe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_frkj2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dnr4h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w4xrd")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_7hyc7")
 }, {
 "duration": 1.0,
@@ -226,6 +214,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gtmcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfkxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frkj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnr4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4xrd")
 }],
 "loop": true,
 "name": &"Fire",
@@ -317,8 +317,10 @@ position = Vector2(0, -26)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WeaponHolder"]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_4nk0x")
-animation = &"Idle"
+animation = &"Fire"
 autoplay = "Idle"
+frame = 8
+frame_progress = 0.987094
 
 [node name="Marker2D" type="Marker2D" parent="WeaponHolder"]
 position = Vector2(0, -14)

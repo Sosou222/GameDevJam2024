@@ -24,8 +24,6 @@ public partial class Tower : Node2D
 
 	private List<Enemy> enemies => enemyDetectionComponent.enemies;
 
-	private const int pixelAtlasSeperationX = 64;
-
 	public override void _Ready()
 	{
 		weaponHolder = GetNode<Node2D>("WeaponHolder");

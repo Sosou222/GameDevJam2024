@@ -11,10 +11,6 @@
 atlas = ExtResource("2_6ahu3")
 region = Rect2(0, 64, 64, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtaq0"]
-atlas = ExtResource("3_q8ty7")
-region = Rect2(0, 48, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_lpixg"]
 atlas = ExtResource("3_q8ty7")
 region = Rect2(48, 48, 48, 48)
@@ -75,6 +71,10 @@ region = Rect2(672, 48, 48, 48)
 atlas = ExtResource("3_q8ty7")
 region = Rect2(720, 48, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaq0"]
+atlas = ExtResource("3_q8ty7")
+region = Rect2(0, 48, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1r6k"]
 atlas = ExtResource("3_q8ty7")
 region = Rect2(0, 0, 48, 48)
@@ -119,9 +119,6 @@ region = Rect2(432, 0, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vtaq0")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_lpixg")
 }, {
 "duration": 1.0,
@@ -165,6 +162,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sbstv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtaq0")
 }],
 "loop": true,
 "name": &"Fire",
@@ -225,7 +225,7 @@ texture = SubResource("AtlasTexture_f85j3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WeaponHolder"]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_6xpvn")
-animation = &"Idle"
+animation = &"Fire"
 
 [node name="Marker2D" type="Marker2D" parent="WeaponHolder"]
 position = Vector2(0, -14)

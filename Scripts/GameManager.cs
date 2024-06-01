@@ -14,8 +14,6 @@ public partial class GameManager : Node
     public HealthComponent HpComponent { private set; get; }
 
     public int Gold { private set; get; } = 10;
-    public int Health { private set; get; } = 100;
-
 
     private WaveManager waveManager;
 
