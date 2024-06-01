@@ -6,9 +6,19 @@ public partial class GameManager : Node
 {
     private WaveManager waveManager;
 
+    private TileMap tileMap;
+
+    private Node2D towerHolder;
+
+    private static GameManager instance;
+
     public override void _Ready()
     {
+        instance = this;
+
         waveManager = GetNode<WaveManager>("WaveManager");
+        tileMap = GetNode<TileMap>("TileMap");
+        towerHolder = GetNode<Node2D>("TowerHolder");
 
         waveManager.WaveEnd += BeginNewWave;
         waveManager.StartWave(2);
@@ -22,5 +32,15 @@ public partial class GameManager : Node
         }
 
         waveManager.StartWave(lastWave + 1);
+    }
+
+    public static Node2D GetTowerHolder()
+    {
+        return instance.towerHolder;
+    }
+
+    public static bool CanPlaceTowerTile(Area2D towerArea)
+    {
+        return false;
     }
 }

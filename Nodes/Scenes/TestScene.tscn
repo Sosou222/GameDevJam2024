@@ -165,6 +165,8 @@ curve = SubResource("Curve2D_20xkg")
 
 [node name="Timer" type="Timer" parent="GameManager/WaveManager"]
 
+[node name="TowerHolder" type="Node2D" parent="GameManager"]
+
 [node name="ArrowTowers" type="Node2D" parent="GameManager"]
 position = Vector2(729, 200)
 
