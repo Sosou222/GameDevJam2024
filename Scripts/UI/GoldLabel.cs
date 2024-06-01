@@ -5,11 +5,11 @@ public partial class GoldLabel : Label
 {
 	public override void _Ready()
 	{
-		GameManager.Instance.GoldChange += ChangeGoldLabel;
-		ChangeGoldLabel(GameManager.Instance.Gold);
+		GameManager.Instance.GoldChange += OnChangeGold;
+		OnChangeGold(GameManager.Instance.Gold);
 	}
 
-	private void ChangeGoldLabel(int gold)
+	private void OnChangeGold(int gold)
 	{
 		Text = $"Gold:{gold}";
 	}

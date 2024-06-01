@@ -11,8 +11,10 @@ public partial class GameManager : Node
     public Node2D TowerHolder { private set; get; }
     public Node2D BulletHolder { private set; get; }
     public Node2D AfterEffectHolder { private set; get; }
+    public HealthComponent HpComponent { private set; get; }
 
     public int Gold { private set; get; } = 10;
+    public int Health { private set; get; } = 100;
 
 
     private WaveManager waveManager;
@@ -22,6 +24,7 @@ public partial class GameManager : Node
         Instance = this;
 
         waveManager = GetNode<WaveManager>("WaveManager");
+        HpComponent = GetNode<HealthComponent>("HealthComponent");
         TowerHolder = GetNode<Node2D>("TowerHolder");
         BulletHolder = GetNode<Node2D>("BulletHolder");
         AfterEffectHolder = GetNode<Node2D>("AfterEffectHolder");

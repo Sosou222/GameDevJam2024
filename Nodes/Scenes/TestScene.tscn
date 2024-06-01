@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=17 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="TileSet" uid="uid://bv3xubkyhh685" path="res://Resources/Tileset/GameTileset.tres" id="2_44s8d"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
+[ext_resource type="PackedScene" uid="uid://be0p70r0m0v03" path="res://Nodes/Components/HealthComponent.tscn" id="3_3qe4b"]
 [ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="5_c7dmo"]
 [ext_resource type="PackedScene" uid="uid://lenu04cym04r" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv2.tscn" id="6_xs27h"]
 [ext_resource type="PackedScene" uid="uid://ghogiessd6wp" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv3.tscn" id="7_1rwuh"]
@@ -30,6 +31,9 @@ script = ExtResource("1_ykn36")
 tile_set = ExtResource("2_44s8d")
 format = 2
 layer_0/tile_data = PackedInt32Array(65536, 589824, 2, 65537, 589824, 2, 65538, 589824, 2, 65539, 589824, 2, 65540, 589824, 2, 65541, 589824, 2, 65542, 589824, 2, 65543, 589824, 2, 65544, 589824, 2, 65545, 589824, 2, 131081, 589824, 2, 196617, 589824, 2, 262153, 589824, 2, 327689, 589824, 2, 393225, 589824, 2, 458761, 589824, 2, 524297, 589824, 2, 589833, 589824, 2, 589832, 589824, 2, 589831, 589824, 2, 589830, 589824, 2, 589829, 589824, 2, 589828, 589824, 2, 589827, 589824, 2, 589826, 589824, 2, 524290, 589824, 2, 458754, 589824, 2, 393218, 589824, 2, 327682, 589824, 2, 262146, 589824, 2, 262147, 589824, 2, 262148, 589824, 2, 262149, 589824, 2, 262150, 589824, 2, 262151, 589824, 2, 262152, 589824, 2, 262154, 589824, 2, 262155, 589824, 2, 262156, 589824, 2, 262157, 589824, 2, 196621, 589824, 2, 131085, 589824, 2, 65549, 589824, 2, 13, 589824, 2, 14, 589824, 2, 15, 589824, 2, 16, 589824, 2, 524300, 589824, 2, 524301, 589824, 2, 589837, 589824, 2, 589836, 589824, 2)
+
+[node name="HealthComponent" parent="GameManager" instance=ExtResource("3_3qe4b")]
+MaxHealth = 100
 
 [node name="WaveManager" type="Node2D" parent="GameManager"]
 script = ExtResource("2_dvjyl")
