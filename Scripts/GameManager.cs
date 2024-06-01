@@ -14,14 +14,11 @@ public partial class GameManager : Node
 
     private WaveManager waveManager;
 
-    private TileMap tileMap;
-
     public override void _Ready()
     {
         Instance = this;
 
         waveManager = GetNode<WaveManager>("WaveManager");
-        tileMap = GetNode<TileMap>("TileMap");
         TowerHolder = GetNode<Node2D>("TowerHolder");
         BulletHolder = GetNode<Node2D>("BulletHolder");
         AfterEffectHolder = GetNode<Node2D>("AfterEffectHolder");
@@ -40,8 +37,4 @@ public partial class GameManager : Node
         waveManager.StartWave(lastWave + 1);
     }
 
-    public static bool CanPlaceTowerTile(Area2D towerArea)
-    {
-        return false;
-    }
 }

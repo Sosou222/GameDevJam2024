@@ -52,7 +52,7 @@ public partial class TowerBuyButton : Button
 
 	private void CheckPlacement()
 	{
-		if (tmpTower.TowerPlacementComponent.GetOverlappingAreas().Count == 0)
+		if (tmpTower.TowerPlacementComponent.GetOverlappingAreas().Count == 0 && tmpTower.TowerPlacementComponent.GetOverlappingBodies().Count == 0)
 		{
 			tmpTower.Modulate = Colors.Lime;
 		}
