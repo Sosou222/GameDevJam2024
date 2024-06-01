@@ -5,6 +5,7 @@ using Godot.Collections;
 public partial class TowerBuyButton : Button
 {
 	[Export] private PackedScene towerScene;
+	[Export] private int Cost = 10;
 	private bool isDraging = false;
 
 	private Tower tmpTower;
@@ -19,6 +20,10 @@ public partial class TowerBuyButton : Button
 	}
 	private void OnButtonDown()
 	{
+		if (Cost > GameManager.Instance.Gold)
+		{
+			return;
+		}
 		isDraging = true;
 
 		tmpTower = towerScene.Instantiate<Tower>();
@@ -38,6 +43,7 @@ public partial class TowerBuyButton : Button
 			tmpTower.ProcessMode = ProcessModeEnum.Inherit;
 			tmpTower.TowerPlacementComponent.ProcessMode = ProcessModeEnum.Inherit;
 			tmpTower.Modulate = Colors.White;
+			GameManager.PayGold(Cost);
 		}
 		else
 		{

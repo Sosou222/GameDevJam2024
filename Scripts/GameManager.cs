@@ -11,6 +11,8 @@ public partial class GameManager : Node
     public Node2D BulletHolder { private set; get; }
     public Node2D AfterEffectHolder { private set; get; }
 
+    public int Gold { private set; get; } = 10;
+
 
     private WaveManager waveManager;
 
@@ -35,6 +37,11 @@ public partial class GameManager : Node
         }
 
         waveManager.StartWave(lastWave + 1);
+    }
+
+    public static void PayGold(int gold)
+    {
+        Instance.Gold -= gold;
     }
 
 }
