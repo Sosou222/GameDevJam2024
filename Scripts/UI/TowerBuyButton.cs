@@ -22,7 +22,7 @@ public partial class TowerBuyButton : Button
 
 		tmpTower = towerScene.Instantiate<Tower>();
 		tmpTower.ProcessMode = ProcessModeEnum.Disabled;
-		GameManager.GetTowerHolder().AddChild(tmpTower);
+		GameManager.Instance.TowerHolder.AddChild(tmpTower);
 	}
 
 	private void OnButtonUp()
