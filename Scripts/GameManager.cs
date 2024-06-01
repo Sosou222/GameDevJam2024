@@ -4,7 +4,8 @@ using System;
 
 public partial class GameManager : Node
 {
-
+    [Signal]
+    public delegate void GoldChangeEventHandler(int newCost);
     public static GameManager Instance { private set; get; }
 
     public Node2D TowerHolder { private set; get; }
@@ -42,6 +43,7 @@ public partial class GameManager : Node
     public static void PayGold(int gold)
     {
         Instance.Gold -= gold;
+        Instance.EmitSignal(SignalName.GoldChange, Instance.Gold);
     }
 
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qmsw54givcgq"]
+[gd_scene load_steps=14 format=3 uid="uid://qmsw54givcgq"]
 
 [ext_resource type="PackedScene" uid="uid://8gc6sc4us21x" path="res://Nodes/UI/TowerBuyButton.tscn" id="1_5srk3"]
 [ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="2_6gv87"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wdibtk53efcy" path="res://Nodes/UI/GoldBuyLabel.tscn" id="5_w3inh"]
 [ext_resource type="Texture2D" uid="uid://dtjha4npjmeyw" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 02.png" id="7_an0w1"]
 [ext_resource type="Texture2D" uid="uid://d2p0bp5elkb4v" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 01 - Weapon.png" id="8_e3aot"]
+[ext_resource type="Script" path="res://Scripts/UI/GoldLabel.cs" id="9_e78kl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hn2dp"]
 atlas = ExtResource("2_mno7n")
@@ -80,6 +81,9 @@ texture = SubResource("AtlasTexture_jcgyo")
 [node name="GoldBuyLabel" parent="Panel/GridContainer/Panel" node_paths=PackedStringArray("towerBuyButton") instance=ExtResource("5_w3inh")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+offset_right = 1.0
+grow_horizontal = 1
 towerBuyButton = NodePath("../TowerBuyButton")
 
 [node name="Panel2" type="Panel" parent="Panel/GridContainer"]
@@ -111,9 +115,13 @@ texture = SubResource("AtlasTexture_7fwdo")
 [node name="GoldBuyLabel" parent="Panel/GridContainer/Panel2" node_paths=PackedStringArray("towerBuyButton") instance=ExtResource("5_w3inh")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+offset_right = 1.0
+grow_horizontal = 1
 towerBuyButton = NodePath("../TowerBuyButton")
 
-[node name="FlowContainer" type="FlowContainer" parent="Panel"]
-layout_mode = 0
-offset_right = 94.0
-offset_bottom = 45.0
+[node name="GoldLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Gold:"
+script = ExtResource("9_e78kl")
