@@ -1,9 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=16 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="TileSet" uid="uid://bv3xubkyhh685" path="res://Resources/Tileset/GameTileset.tres" id="2_44s8d"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
+[ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="5_c7dmo"]
+[ext_resource type="PackedScene" uid="uid://lenu04cym04r" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv2.tscn" id="6_xs27h"]
+[ext_resource type="PackedScene" uid="uid://ghogiessd6wp" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv3.tscn" id="7_1rwuh"]
+[ext_resource type="PackedScene" uid="uid://bd30lvvlnjs77" path="res://Nodes/Prefabs/Towers/ArrowTowers/ArrowTowerLv1.tscn" id="8_rx467"]
+[ext_resource type="PackedScene" uid="uid://61p35bd6br3t" path="res://Nodes/Prefabs/Towers/ArrowTowers/ArrowTowerLv2.tscn" id="9_lolno"]
+[ext_resource type="PackedScene" uid="uid://cexwf2cy63rwr" path="res://Nodes/Prefabs/Towers/ArrowTowers/ArrowTowerLv3.tscn" id="10_ndf57"]
+[ext_resource type="PackedScene" uid="uid://dhhi7r1r3xfv5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv1.tscn" id="11_gt6v8"]
+[ext_resource type="PackedScene" uid="uid://o0fv7d3gw5x6" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv2.tscn" id="12_ywxo5"]
+[ext_resource type="PackedScene" uid="uid://db2s8e1p6h2k5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv3.tscn" id="13_jx43q"]
 [ext_resource type="PackedScene" uid="uid://qmsw54givcgq" path="res://Nodes/UI/ui.tscn" id="14_ri3b1"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
@@ -32,6 +41,33 @@ curve = SubResource("Curve2D_20xkg")
 [node name="Timer" type="Timer" parent="GameManager/WaveManager"]
 
 [node name="TowerHolder" type="Node2D" parent="GameManager"]
+
+[node name="MageTowerLv1" parent="GameManager/TowerHolder" instance=ExtResource("5_c7dmo")]
+position = Vector2(1668, 148)
+
+[node name="MageTowerLv2" parent="GameManager/TowerHolder" instance=ExtResource("6_xs27h")]
+position = Vector2(1670, 265)
+
+[node name="MageTowerLv3" parent="GameManager/TowerHolder" instance=ExtResource("7_1rwuh")]
+position = Vector2(1666, 359)
+
+[node name="ArrowTowerLv1" parent="GameManager/TowerHolder" instance=ExtResource("8_rx467")]
+position = Vector2(1658, 428)
+
+[node name="ArrowTowerLv2" parent="GameManager/TowerHolder" instance=ExtResource("9_lolno")]
+position = Vector2(1656, 506)
+
+[node name="ArrowTowerLv3" parent="GameManager/TowerHolder" instance=ExtResource("10_ndf57")]
+position = Vector2(1650, 568)
+
+[node name="SlightShotTowerLv1" parent="GameManager/TowerHolder" instance=ExtResource("11_gt6v8")]
+position = Vector2(1646, 633)
+
+[node name="SlightShotTowerLv2" parent="GameManager/TowerHolder" instance=ExtResource("12_ywxo5")]
+position = Vector2(1658, 704)
+
+[node name="SlightShotTowerLv3" parent="GameManager/TowerHolder" instance=ExtResource("13_jx43q")]
+position = Vector2(1698, 769)
 
 [node name="BulletHolder" type="Node2D" parent="GameManager"]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cexwf2cy63rwr"]
+[gd_scene load_steps=17 format=3 uid="uid://cexwf2cy63rwr"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_cjq2y"]
 [ext_resource type="PackedScene" uid="uid://dxgjbtajj2oxc" path="res://Nodes/Prefabs/Bullets/ArrowBullet/ArrowBulletLv3.tscn" id="2_4im1m"]
 [ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="3_jgohp"]
 [ext_resource type="Texture2D" uid="uid://2ut2l8lcodh2" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 03 - Weapon.png" id="3_lyu3p"]
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="5_nb46w"]
+[ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_olqh5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvriy"]
 atlas = ExtResource("3_jgohp")
@@ -63,7 +64,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn38f"]
 radius = 203.062
 
-[node name="ArrowTowerLv1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inema"]
+size = Vector2(68, 71)
+
+[node name="ArrowTowerLv3" type="Node2D"]
 script = ExtResource("1_cjq2y")
 bulletScene = ExtResource("2_4im1m")
 
@@ -86,6 +90,12 @@ rotation = 1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionComponent"]
 shape = SubResource("CircleShape2D_vn38f")
+
+[node name="TowerPlacementComponent" parent="." instance=ExtResource("6_olqh5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerPlacementComponent"]
+position = Vector2(1, 29.5)
+shape = SubResource("RectangleShape2D_inema")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

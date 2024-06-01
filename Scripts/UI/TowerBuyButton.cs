@@ -19,7 +19,6 @@ public partial class TowerBuyButton : Button
 	}
 	private void OnButtonDown()
 	{
-		GD.Print("ButtonDown");
 		isDraging = true;
 
 		tmpTower = towerScene.Instantiate<Tower>();
@@ -29,7 +28,6 @@ public partial class TowerBuyButton : Button
 
 	private void OnButtonUp()
 	{
-		GD.Print("ButtonUp");
 		isDraging = false;
 
 		if (canBePlaced)

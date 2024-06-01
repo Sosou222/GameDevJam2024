@@ -32,9 +32,7 @@ public partial class Tower : Node2D
 		timer = GetNode<Timer>("Timer");
 		shootMarker = weaponHolder.GetNode<Marker2D>("Marker2D");
 		enemyDetectionComponent = GetNode<EnemyDetectionComponent>("EnemyDetectionComponent");
-
-		//tmp node or null
-		TowerPlacementComponent = GetNodeOrNull<Area2D>("TowerPlacementComponent");
+		TowerPlacementComponent = GetNode<Area2D>("TowerPlacementComponent");
 
 		timer.Timeout += Shoot;
 	}
