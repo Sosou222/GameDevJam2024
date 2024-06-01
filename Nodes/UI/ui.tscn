@@ -1,17 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://qmsw54givcgq"]
+[gd_scene load_steps=13 format=3 uid="uid://qmsw54givcgq"]
 
+[ext_resource type="PackedScene" uid="uid://8gc6sc4us21x" path="res://Nodes/UI/TowerBuyButton.tscn" id="1_5srk3"]
 [ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="2_6gv87"]
-[ext_resource type="Script" path="res://Scripts/UI/TowerBuyButton.cs" id="2_enm5i"]
+[ext_resource type="PackedScene" uid="uid://bd30lvvlnjs77" path="res://Nodes/Prefabs/Towers/ArrowTowers/ArrowTowerLv1.tscn" id="2_b8xex"]
 [ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="2_mno7n"]
 [ext_resource type="Texture2D" uid="uid://yiil44m7t6m4" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Weapon.png" id="3_au0xl"]
+[ext_resource type="PackedScene" uid="uid://wdibtk53efcy" path="res://Nodes/UI/GoldBuyLabel.tscn" id="5_w3inh"]
+[ext_resource type="Texture2D" uid="uid://dtjha4npjmeyw" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 02.png" id="7_an0w1"]
+[ext_resource type="Texture2D" uid="uid://d2p0bp5elkb4v" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 01 - Weapon.png" id="8_e3aot"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jc7qm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn2dp"]
 atlas = ExtResource("2_mno7n")
 region = Rect2(0, 24, 64, 104)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lv7up"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcgyo"]
 atlas = ExtResource("3_au0xl")
 region = Rect2(24, 24, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo4ay"]
+atlas = ExtResource("7_an0w1")
+region = Rect2(0, 80, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fwdo"]
+atlas = ExtResource("8_e3aot")
+region = Rect2(8, 8, 32, 32)
 
 [node name="UI" type="CanvasLayer"]
 
@@ -26,29 +38,82 @@ grow_vertical = 2
 size_flags_horizontal = 8
 mouse_filter = 1
 
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Panel" type="Panel" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(80, 140)
+layout_mode = 2
+
+[node name="TowerBuyButton" parent="Panel/GridContainer/Panel" instance=ExtResource("1_5srk3")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+towerScene = ExtResource("2_b8xex")
+
+[node name="Node2D" type="Node2D" parent="Panel/GridContainer/Panel"]
+position = Vector2(39, 79)
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/GridContainer/Panel/Node2D"]
+texture = SubResource("AtlasTexture_hn2dp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel/GridContainer/Panel/Node2D"]
+position = Vector2(0, -20)
+rotation = 1.57079
+texture = SubResource("AtlasTexture_jcgyo")
+
+[node name="GoldBuyLabel" parent="Panel/GridContainer/Panel" node_paths=PackedStringArray("towerBuyButton") instance=ExtResource("5_w3inh")]
+layout_mode = 0
+anchors_preset = 0
+towerBuyButton = NodePath("../TowerBuyButton")
+
+[node name="Panel2" type="Panel" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(80, 140)
+layout_mode = 2
+
+[node name="TowerBuyButton" parent="Panel/GridContainer/Panel2" instance=ExtResource("1_5srk3")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+towerScene = ExtResource("2_6gv87")
+Cost = 15
+
+[node name="Node2D" type="Node2D" parent="Panel/GridContainer/Panel2"]
+position = Vector2(39, 79)
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/GridContainer/Panel2/Node2D"]
+texture = SubResource("AtlasTexture_yo4ay")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel/GridContainer/Panel2/Node2D"]
+position = Vector2(0, -20)
+texture = SubResource("AtlasTexture_7fwdo")
+
+[node name="GoldBuyLabel" parent="Panel/GridContainer/Panel2" node_paths=PackedStringArray("towerBuyButton") instance=ExtResource("5_w3inh")]
+layout_mode = 0
+anchors_preset = 0
+towerBuyButton = NodePath("../TowerBuyButton")
+
 [node name="FlowContainer" type="FlowContainer" parent="Panel"]
 layout_mode = 0
 offset_right = 94.0
 offset_bottom = 45.0
-
-[node name="TowerBuyButton" type="Button" parent="Panel"]
-layout_mode = 2
-offset_left = 116.0
-offset_top = 89.0
-offset_right = 155.0
-offset_bottom = 131.0
-script = ExtResource("2_enm5i")
-towerScene = ExtResource("2_6gv87")
-
-[node name="Node2D" type="Node2D" parent="Panel/TowerBuyButton"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/TowerBuyButton/Node2D"]
-position = Vector2(20, 18)
-scale = Vector2(0.359375, 0.359375)
-texture = SubResource("AtlasTexture_jc7qm")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Panel/TowerBuyButton/Node2D"]
-position = Vector2(20, 11)
-rotation = 1.5708
-scale = Vector2(0.359, 0.359)
-texture = SubResource("AtlasTexture_lv7up")

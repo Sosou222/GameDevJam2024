@@ -18,6 +18,11 @@ public partial class TowerBuyButton : Button
 		this.ButtonUp += OnButtonUp;
 		this.GuiInput += OnGuiInput;
 	}
+
+	public int GetCost()
+	{
+		return Cost;
+	}
 	private void OnButtonDown()
 	{
 		if (Cost > GameManager.Instance.Gold)
