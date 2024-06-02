@@ -16,6 +16,7 @@ public partial class ShowAreaComponent : Node2D
 		foreach (var shape in tmp)
 		{
 			shapes.Add(shape.Shape);
+			shape.Shape.Changed += QueueRedraw;
 		}
 		color = new(Colors.SkyBlue);
 		color.A8 = 64;
