@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://clov5xkbv4u7b"]
+
+[ext_resource type="Script" path="res://Scripts/Components/TowerSelectionComponent.cs" id="1_rp1ng"]
+
+[node name="TowerSelectionComponent" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_rp1ng")
