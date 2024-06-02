@@ -33,7 +33,7 @@ public partial class ShowAreaComponent : Node2D
 			}
 			if (shape is RectangleShape2D square)
 			{
-				DrawRect(square.GetRect(), new Color(1.0f, 1.0f, 1.0f, 0.5f));
+				DrawRect(square.GetRect(), color);
 			}
 		}
 	}
