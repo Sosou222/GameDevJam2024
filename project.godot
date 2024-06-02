@@ -38,7 +38,6 @@ UILeftClick={
 2d_physics/layer_2="DamagingArea"
 2d_physics/layer_3="Tower"
 2d_physics/layer_4="NonPlaceable"
-2d_physics/layer_5="UI"
 
 [rendering]
 
