@@ -1,6 +1,7 @@
 using Constants;
 using Godot;
 using System;
+using System.Linq;
 
 public partial class GameManager : Node
 {
@@ -13,7 +14,7 @@ public partial class GameManager : Node
     public Node2D AfterEffectHolder { private set; get; }
     public HealthComponent HpComponent { private set; get; }
 
-    public int Gold { private set; get; } = 10;
+    public int Gold { private set; get; } = 100;
 
     private WaveManager waveManager;
 
@@ -45,6 +46,18 @@ public partial class GameManager : Node
     {
         Instance.Gold -= gold;
         Instance.EmitSignal(SignalName.GoldChange, Instance.Gold);
+    }
+
+    public void SetTargetTower(Tower tower)
+    {
+        var towers = TowerHolder.GetChildren().OfType<Tower>().ToList();
+        foreach (var tow in towers)
+        {
+            tow.showAreaComponent.ShowArea = false;
+            GD.Print("Refresh");
+        }
+
+        tower.showAreaComponent.ShowArea = true;
     }
 
 }

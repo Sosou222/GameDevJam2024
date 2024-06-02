@@ -49,6 +49,7 @@ public partial class TowerBuyButton : Button
 			tmpTower.TowerPlacementComponent.ProcessMode = ProcessModeEnum.Inherit;
 			tmpTower.Modulate = Colors.White;
 			GameManager.PayGold(Cost);
+			GameManager.Instance.SetTargetTower(tmpTower);
 		}
 		else
 		{

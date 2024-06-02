@@ -7,6 +7,25 @@ public partial class ShowAreaComponent : Node2D
 {
 	[Export] private Area2D area2D;
 
+
+
+	private bool showArea = true;
+	public bool ShowArea
+	{
+		get
+		{
+			return showArea;
+		}
+		set
+		{
+			if (showArea != value)
+			{
+				showArea = value;
+				QueueRedraw();
+			}
+		}
+	}
+
 	private List<Shape2D> shapes = new();
 
 	private Color color;
@@ -25,6 +44,12 @@ public partial class ShowAreaComponent : Node2D
 	public override void _Draw()
 	{
 		base._Draw();
+
+		if (!ShowArea)
+		{
+			return;
+		}
+
 		foreach (var shape in shapes)
 		{
 			if (shape is CircleShape2D circle)

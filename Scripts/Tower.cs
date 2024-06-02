@@ -17,6 +17,7 @@ public partial class Tower : Node2D
 	[Export] private float ShootInterval = 1.0f;
 
 	public Area2D TowerPlacementComponent { private set; get; }
+	public ShowAreaComponent showAreaComponent { private set; get; }
 
 	private Node2D weaponHolder;
 	private Marker2D shootMarker;
@@ -37,6 +38,7 @@ public partial class Tower : Node2D
 		animatedSprite2D = weaponHolder.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		enemyDetectionComponent = GetNode<EnemyDetectionComponent>("EnemyDetectionComponent");
 		TowerPlacementComponent = GetNode<Area2D>("TowerPlacementComponent");
+		showAreaComponent = GetNode<ShowAreaComponent>("ShowAreaComponent");
 
 		//timer.Timeout += Shoot;
 	}
