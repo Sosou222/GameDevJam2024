@@ -16,6 +16,8 @@ public partial class Tower : Node2D
 	[Export] private WeaponBehavior weaponBehavior = WeaponBehavior.Rotate;
 	[Export] private float ShootInterval = 1.0f;
 
+	[Export] public PackedScene upgradedTower { private set; get; } = null;
+
 	public Area2D TowerPlacementComponent { private set; get; }
 	public ShowAreaComponent showAreaComponent { private set; get; }
 

@@ -35,12 +35,14 @@ public partial class TowerInfoUI : Panel
 	{
 		selectedTower.showAreaComponent.ShowArea = true;
 		towerName.Text = selectedTower.Name;
+		upgradeButton.Disabled = selectedTower.upgradedTower == null;
 	}
 
 
 	private void Reset()
 	{
 		towerName.Text = "";
+		upgradeButton.Disabled = true;
 	}
 
 	private void OnUpgradeButtonPressed()
@@ -51,5 +53,17 @@ public partial class TowerInfoUI : Panel
 		}
 
 		GD.Print($"Upgrading tower:{selectedTower.Name}");
+		if (selectedTower.upgradedTower == null)
+		{
+			return;
+		}
+
+		Tower tmpTower = selectedTower.upgradedTower.Instantiate<Tower>();
+		GameManager.Instance.TowerHolder.AddChild(tmpTower);
+		tmpTower.GlobalPosition = selectedTower.GlobalPosition;
+
+		selectedTower.QueueFree();
+
+		GameManager.Instance.SetTargetTower(null);
 	}
 }
