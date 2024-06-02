@@ -14,6 +14,7 @@ public partial class Enemy : PathFollow2D
 
 
 	private float Speed = 100.0f;
+	private int Gold = 1;
 
 	private Vector2 direction = Vector2.Right;
 
@@ -31,6 +32,7 @@ public partial class Enemy : PathFollow2D
 		this.ReachedEnd += () => GD.Print($"{Name} reached end");
 		this.ReachedEnd += QueueFree;
 
+		healthComponent.Die += () => GameManager.AddGold(Gold);
 		healthComponent.Die += () => IsDying = true;
 		healthComponent.Die += OnDie;
 	}
@@ -62,6 +64,7 @@ public partial class Enemy : PathFollow2D
 		animationPlayer.Play("WalkRight");
 
 		Speed = enemyInfo.Speed;
+		Gold = enemyInfo.Gold;
 	}
 
 	private Vector2 SnapVector(Vector2 oldPosition)

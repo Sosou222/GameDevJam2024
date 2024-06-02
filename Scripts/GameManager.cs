@@ -48,6 +48,12 @@ public partial class GameManager : Node
         Instance.EmitSignal(SignalName.GoldChange, Instance.Gold);
     }
 
+    public static void AddGold(int gold)
+    {
+        Instance.Gold += gold;
+        Instance.EmitSignal(SignalName.GoldChange, Instance.Gold);
+    }
+
     public void SetTargetTower(Tower tower)
     {
         var towers = TowerHolder.GetChildren().OfType<Tower>().ToList();
