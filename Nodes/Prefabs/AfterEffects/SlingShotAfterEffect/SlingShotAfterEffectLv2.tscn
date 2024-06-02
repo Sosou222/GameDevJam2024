@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqefi"]
-size = Vector2(34, 32)
+size = Vector2(34, 46)
 
 [sub_resource type="Animation" id="Animation_pm86i"]
 resource_name = "Effect"

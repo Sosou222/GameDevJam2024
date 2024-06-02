@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svltt"]
-size = Vector2(34, 33)
+size = Vector2(34, 48)
 
 [sub_resource type="Animation" id="Animation_54t6m"]
 resource_name = "Effect"
@@ -164,7 +164,6 @@ sprite_frames = SubResource("SpriteFrames_d1oks")
 Damage = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_svltt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
