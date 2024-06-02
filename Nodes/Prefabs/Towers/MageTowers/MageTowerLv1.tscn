@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://d2n4kvubrfcv0"]
+[gd_scene load_steps=41 format=3 uid="uid://d2n4kvubrfcv0"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_kcoee"]
 [ext_resource type="Texture2D" uid="uid://dtjha4npjmeyw" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 02.png" id="2_6ahu3"]
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="2_qbwi6"]
 [ext_resource type="PackedScene" uid="uid://mkf5rkvn37wq" path="res://Nodes/Prefabs/Bullets/MageBullet/MageBulletLv1.tscn" id="2_xc886"]
 [ext_resource type="Texture2D" uid="uid://d2p0bp5elkb4v" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 01 - Weapon.png" id="3_q8ty7"]
+[ext_resource type="PackedScene" uid="uid://lenu04cym04r" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv2.tscn" id="3_uxhls"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_v45i0"]
 [ext_resource type="PackedScene" uid="uid://eufg7nk4kb8y" path="res://Nodes/Components/ShowAreaComponent.tscn" id="7_wibsi"]
 [ext_resource type="PackedScene" uid="uid://clov5xkbv4u7b" path="res://Scripts/Components/TowerSelectionComponent.tscn" id="8_7e0ex"]
@@ -221,6 +222,7 @@ size = Vector2(51, 97)
 script = ExtResource("1_kcoee")
 bulletScene = ExtResource("2_xc886")
 weaponBehavior = 1
+upgradedTower = ExtResource("3_uxhls")
 
 [node name="TowerBase" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_f85j3")
@@ -230,7 +232,8 @@ texture = SubResource("AtlasTexture_f85j3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WeaponHolder"]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_6xpvn")
-animation = &"Fire"
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="Marker2D" type="Marker2D" parent="WeaponHolder"]
 position = Vector2(0, -14)

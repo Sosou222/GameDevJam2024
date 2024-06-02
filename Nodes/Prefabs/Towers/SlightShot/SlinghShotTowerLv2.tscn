@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://o0fv7d3gw5x6"]
+[gd_scene load_steps=24 format=3 uid="uid://o0fv7d3gw5x6"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_xjb6u"]
 [ext_resource type="PackedScene" uid="uid://b07mgax2mu0yt" path="res://Nodes/Prefabs/Bullets/SlighShotBullet/SlingShotBulletLv2.tscn" id="2_o3yni"]
 [ext_resource type="Texture2D" uid="uid://ca0gabmsja3kw" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 03.png" id="3_as06m"]
+[ext_resource type="PackedScene" uid="uid://db2s8e1p6h2k5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv3.tscn" id="3_dhwc0"]
 [ext_resource type="Texture2D" uid="uid://biui1yoslc54g" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 03/Tower 03 - Level 02 - Weapon.png" id="4_ouofv"]
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="5_3hc6l"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_kh5fh"]
@@ -101,6 +102,7 @@ size = Vector2(51, 106)
 [node name="SlightShotTowerLv2" type="Node2D"]
 script = ExtResource("1_xjb6u")
 bulletScene = ExtResource("2_o3yni")
+upgradedTower = ExtResource("3_dhwc0")
 
 [node name="TowerBaseSprite" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_g6o2t")
