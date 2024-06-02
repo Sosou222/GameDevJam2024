@@ -66,7 +66,7 @@ public partial class Tower : Node2D
 			return;
 		}
 
-		enemies.RemoveAll(e => e == null || !IsInstanceValid(e));
+		enemies.RemoveAll(e => e == null || !IsInstanceValid(e) || e.IsDying == true);
 		Enemy en = EnemiesManager.GetFirstEnemyInSightOrNull(enemies);
 		if (en != null)
 		{

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d2n4kvubrfcv0"]
+[gd_scene load_steps=40 format=3 uid="uid://d2n4kvubrfcv0"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_kcoee"]
 [ext_resource type="Texture2D" uid="uid://dtjha4npjmeyw" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 02.png" id="2_6ahu3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d2p0bp5elkb4v" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 01 - Weapon.png" id="3_q8ty7"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_v45i0"]
 [ext_resource type="PackedScene" uid="uid://eufg7nk4kb8y" path="res://Nodes/Components/ShowAreaComponent.tscn" id="7_wibsi"]
+[ext_resource type="PackedScene" uid="uid://clov5xkbv4u7b" path="res://Scripts/Components/TowerSelectionComponent.tscn" id="8_7e0ex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f85j3"]
 atlas = ExtResource("2_6ahu3")
@@ -213,6 +214,9 @@ radius = 162.25
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f10io"]
 size = Vector2(68, 71)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwjwu"]
+size = Vector2(51, 97)
+
 [node name="MageTowerLv1" type="Node2D"]
 script = ExtResource("1_kcoee")
 bulletScene = ExtResource("2_xc886")
@@ -247,3 +251,10 @@ shape = SubResource("RectangleShape2D_f10io")
 
 [node name="ShowAreaComponent" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("7_wibsi")]
 area2D = NodePath("../EnemyDetectionComponent")
+
+[node name="TowerSelectionComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("8_7e0ex")]
+owner = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerSelectionComponent"]
+position = Vector2(-0.5, 16.5)
+shape = SubResource("RectangleShape2D_xwjwu")

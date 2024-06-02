@@ -10,6 +10,8 @@ public partial class Enemy : PathFollow2D
 
 	public HealthComponent healthComponent { get; private set; }
 
+	public bool IsDying { get; private set; } = false;
+
 
 	private float Speed = 100.0f;
 
@@ -29,12 +31,18 @@ public partial class Enemy : PathFollow2D
 		this.ReachedEnd += () => GD.Print($"{Name} reached end");
 		this.ReachedEnd += QueueFree;
 
-		healthComponent.Die += QueueFree;
+		healthComponent.Die += () => IsDying = true;
+		healthComponent.Die += OnDie;
 	}
 
 
 	public override void _Process(double delta)
 	{
+		if (IsDying)
+		{
+			return;
+		}
+
 		Vector2 oldPos = GlobalPosition;
 
 		Progress += Speed * (float)delta;
@@ -69,26 +77,43 @@ public partial class Enemy : PathFollow2D
 		}
 	}
 
-	private void ChangeAnimation()
+	private string GetAnimationDir()
 	{
-		string animationName = "Walk";
 		if (direction == Vector2.Down)
 		{
-			animationName += "Down";
+			return "Down";
 		}
 		else if (direction == Vector2.Up)
 		{
-			animationName += "Up";
+			return "Up";
 		}
 		else if (direction == Vector2.Left)
 		{
-			animationName += "Left";
+			return "Left";
 		}
 		else
 		{
-			animationName += "Right";
+			return "Right";
 		}
+	}
+
+	private void ChangeAnimation()
+	{
+		string animationName = "Walk";
+		animationName += GetAnimationDir();
 
 		animationPlayer.Play(animationName);
+	}
+
+	private void OnDie()
+	{
+		string animationName = "Dying";
+		animationName += GetAnimationDir();
+
+		animationPlayer.Play(animationName);
+		animationPlayer.AnimationFinished += (name) =>
+		{
+			QueueFree();
+		};
 	}
 }

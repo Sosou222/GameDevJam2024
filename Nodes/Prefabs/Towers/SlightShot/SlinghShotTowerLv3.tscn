@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://db2s8e1p6h2k5"]
+[gd_scene load_steps=23 format=3 uid="uid://db2s8e1p6h2k5"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_6w60e"]
 [ext_resource type="PackedScene" uid="uid://dpudviprfo1vk" path="res://Nodes/Prefabs/Bullets/SlighShotBullet/SlingShotBulletLv3.tscn" id="2_w8prf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="5_i5415"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_g0x7t"]
 [ext_resource type="PackedScene" uid="uid://eufg7nk4kb8y" path="res://Nodes/Components/ShowAreaComponent.tscn" id="7_6fllr"]
+[ext_resource type="PackedScene" uid="uid://clov5xkbv4u7b" path="res://Scripts/Components/TowerSelectionComponent.tscn" id="8_ko6ed"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q1r0"]
 atlas = ExtResource("3_bbkyd")
@@ -94,6 +95,9 @@ radius = 250.072
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ebtf"]
 size = Vector2(68, 71)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02iei"]
+size = Vector2(51, 115)
+
 [node name="SlightShotTowerLv3" type="Node2D"]
 script = ExtResource("1_6w60e")
 bulletScene = ExtResource("2_w8prf")
@@ -132,3 +136,10 @@ autostart = true
 
 [node name="ShowAreaComponent" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("7_6fllr")]
 area2D = NodePath("../EnemyDetectionComponent")
+
+[node name="TowerSelectionComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("8_ko6ed")]
+owner = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerSelectionComponent"]
+position = Vector2(-0.5, 7.5)
+shape = SubResource("RectangleShape2D_02iei")
