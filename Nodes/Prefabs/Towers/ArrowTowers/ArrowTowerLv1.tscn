@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bd30lvvlnjs77"]
+[gd_scene load_steps=20 format=3 uid="uid://bd30lvvlnjs77"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_chaiq"]
 [ext_resource type="PackedScene" uid="uid://cyfthae8xahli" path="res://Nodes/Prefabs/Bullets/ArrowBullet/ArrowBulletLv1.tscn" id="2_jko4e"]
 [ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="3_jpuf6"]
 [ext_resource type="Texture2D" uid="uid://yiil44m7t6m4" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 01 - Weapon.png" id="4_rksky"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_un8fq"]
+[ext_resource type="PackedScene" uid="uid://eufg7nk4kb8y" path="res://Nodes/Components/ShowAreaComponent.tscn" id="7_1e2dv"]
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="7_1jdon"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghy2f"]
@@ -73,6 +74,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iruop"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1tse"]
 radius = 203.062
 
@@ -100,6 +103,7 @@ position = Vector2(26, -5.81741e-05)
 rotation = 1.57079
 
 [node name="EnemyDetectionComponent" parent="." instance=ExtResource("7_1jdon")]
+material = SubResource("CanvasItemMaterial_iruop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionComponent"]
 shape = SubResource("CircleShape2D_k1tse")
@@ -109,6 +113,9 @@ shape = SubResource("CircleShape2D_k1tse")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerPlacementComponent"]
 position = Vector2(1, 29.5)
 shape = SubResource("RectangleShape2D_rap7t")
+
+[node name="ShowAreaComponent" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("7_1e2dv")]
+area2D = NodePath("../EnemyDetectionComponent")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
