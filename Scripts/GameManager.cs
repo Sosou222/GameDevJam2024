@@ -54,10 +54,9 @@ public partial class GameManager : Node
         foreach (var tow in towers)
         {
             tow.showAreaComponent.ShowArea = false;
-            GD.Print("Refresh");
         }
 
-        tower.showAreaComponent.ShowArea = true;
+        TowerInfoUI.SetSelectedTower(tower);
     }
 
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://qmsw54givcgq"]
+[gd_scene load_steps=16 format=3 uid="uid://qmsw54givcgq"]
 
 [ext_resource type="PackedScene" uid="uid://8gc6sc4us21x" path="res://Nodes/UI/TowerBuyButton.tscn" id="1_5srk3"]
 [ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="2_6gv87"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d2p0bp5elkb4v" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 01 - Weapon.png" id="8_e3aot"]
 [ext_resource type="Script" path="res://Scripts/UI/GoldLabel.cs" id="9_e78kl"]
 [ext_resource type="Script" path="res://Scripts/UI/HealthLabel.cs" id="10_2tns5"]
+[ext_resource type="Script" path="res://Scripts/UI/TowerInfoUI.cs" id="11_ri7cg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hn2dp"]
 atlas = ExtResource("2_mno7n")
@@ -133,3 +134,21 @@ offset_right = 40.0
 offset_bottom = 50.0
 text = "HP:"
 script = ExtResource("10_2tns5")
+
+[node name="Panel2" type="Panel" parent="."]
+offset_top = 131.0
+offset_right = 198.0
+offset_bottom = 648.0
+script = ExtResource("11_ri7cg")
+
+[node name="TowerName" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_right = 198.0
+offset_bottom = 30.0
+
+[node name="UpgradeButton" type="Button" parent="Panel2"]
+layout_mode = 0
+offset_top = 442.0
+offset_right = 198.0
+offset_bottom = 514.0
+text = "Upgrade"

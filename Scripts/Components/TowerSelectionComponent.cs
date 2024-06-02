@@ -18,7 +18,7 @@ public partial class TowerSelectionComponent : Area2D
 		{
 			if (button.ButtonIndex == MouseButton.Left && button.Pressed)
 			{
-				GD.Print($"Tower name:{owner.Name}");
+				GameManager.Instance.SetTargetTower(owner);
 			}
 		}
 	}

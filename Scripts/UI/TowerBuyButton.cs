@@ -25,6 +25,7 @@ public partial class TowerBuyButton : Button
 	}
 	private void OnButtonDown()
 	{
+		GameManager.Instance.SetTargetTower(null);
 		if (Cost > GameManager.Instance.Gold)
 		{
 			return;
@@ -49,7 +50,7 @@ public partial class TowerBuyButton : Button
 			tmpTower.TowerPlacementComponent.ProcessMode = ProcessModeEnum.Inherit;
 			tmpTower.Modulate = Colors.White;
 			GameManager.PayGold(Cost);
-			GameManager.Instance.SetTargetTower(tmpTower);
+			GameManager.Instance.SetTargetTower(null);
 		}
 		else
 		{
