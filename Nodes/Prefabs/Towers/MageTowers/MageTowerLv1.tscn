@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2n4kvubrfcv0"]
+[gd_scene load_steps=38 format=3 uid="uid://d2n4kvubrfcv0"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_kcoee"]
 [ext_resource type="Texture2D" uid="uid://dtjha4npjmeyw" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 02.png" id="2_6ahu3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mkf5rkvn37wq" path="res://Nodes/Prefabs/Bullets/MageBullet/MageBulletLv1.tscn" id="2_xc886"]
 [ext_resource type="Texture2D" uid="uid://d2p0bp5elkb4v" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 01 - Weapon.png" id="3_q8ty7"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_v45i0"]
+[ext_resource type="PackedScene" uid="uid://eufg7nk4kb8y" path="res://Nodes/Components/ShowAreaComponent.tscn" id="7_wibsi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f85j3"]
 atlas = ExtResource("2_6ahu3")
@@ -243,3 +244,6 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerPlacementComponent"]
 position = Vector2(1, 29.5)
 shape = SubResource("RectangleShape2D_f10io")
+
+[node name="ShowAreaComponent" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("7_wibsi")]
+area2D = NodePath("../EnemyDetectionComponent")

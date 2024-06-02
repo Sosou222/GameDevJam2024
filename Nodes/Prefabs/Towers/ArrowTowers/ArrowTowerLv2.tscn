@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://61p35bd6br3t"]
+[gd_scene load_steps=19 format=3 uid="uid://61p35bd6br3t"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_maeys"]
 [ext_resource type="PackedScene" uid="uid://bg4wd4p77t0ld" path="res://Nodes/Prefabs/Bullets/ArrowBullet/ArrowBulletLv2.tscn" id="2_tfry8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dojrof5t7j8xj" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 01/Tower 01 - Level 02 - Weapon.png" id="4_0j3gt"]
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="5_f2rnd"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_tcsmn"]
+[ext_resource type="PackedScene" uid="uid://eufg7nk4kb8y" path="res://Nodes/Components/ShowAreaComponent.tscn" id="7_uy5aq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwoq2"]
 atlas = ExtResource("3_qu3nq")
@@ -109,6 +110,9 @@ shape = SubResource("CircleShape2D_yfb36")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerPlacementComponent"]
 position = Vector2(1, 29.5)
 shape = SubResource("RectangleShape2D_lul3d")
+
+[node name="ShowAreaComponent" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("7_uy5aq")]
+area2D = NodePath("../EnemyDetectionComponent")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2

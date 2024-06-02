@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ghogiessd6wp"]
+[gd_scene load_steps=51 format=3 uid="uid://ghogiessd6wp"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_lwneu"]
 [ext_resource type="PackedScene" uid="uid://wnhwrso5v68s" path="res://Nodes/Prefabs/Bullets/MageBullet/MageBulletLv3.tscn" id="2_i8ueo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://br0vfucp8uunq" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 02/Tower 02 - Level 03 - Weapon.png" id="4_rygg4"]
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="5_2074x"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_smv2l"]
+[ext_resource type="PackedScene" uid="uid://eufg7nk4kb8y" path="res://Nodes/Components/ShowAreaComponent.tscn" id="7_no3xl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vh4t8"]
 atlas = ExtResource("3_hcaqp")
@@ -338,3 +339,6 @@ shape = SubResource("RectangleShape2D_o56kd")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="ShowAreaComponent" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("7_no3xl")]
+area2D = NodePath("../EnemyDetectionComponent")

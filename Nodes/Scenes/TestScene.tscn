@@ -48,31 +48,31 @@ curve = SubResource("Curve2D_20xkg")
 y_sort_enabled = true
 
 [node name="MageTowerLv1" parent="GameManager/TowerHolder" instance=ExtResource("5_c7dmo")]
-position = Vector2(1669, 196)
+position = Vector2(1570, 153)
 
 [node name="MageTowerLv2" parent="GameManager/TowerHolder" instance=ExtResource("6_xs27h")]
-position = Vector2(1670, 265)
+position = Vector2(1571, 222)
 
 [node name="MageTowerLv3" parent="GameManager/TowerHolder" instance=ExtResource("7_1rwuh")]
-position = Vector2(1666, 359)
+position = Vector2(1567, 316)
 
 [node name="ArrowTowerLv1" parent="GameManager/TowerHolder" instance=ExtResource("8_rx467")]
-position = Vector2(1658, 428)
+position = Vector2(1559, 385)
 
 [node name="ArrowTowerLv2" parent="GameManager/TowerHolder" instance=ExtResource("9_lolno")]
-position = Vector2(1656, 506)
+position = Vector2(1557, 463)
 
 [node name="ArrowTowerLv3" parent="GameManager/TowerHolder" instance=ExtResource("10_ndf57")]
-position = Vector2(1650, 568)
+position = Vector2(1551, 525)
 
 [node name="SlightShotTowerLv1" parent="GameManager/TowerHolder" instance=ExtResource("11_gt6v8")]
-position = Vector2(1646, 633)
+position = Vector2(1547, 590)
 
 [node name="SlightShotTowerLv2" parent="GameManager/TowerHolder" instance=ExtResource("12_ywxo5")]
-position = Vector2(1658, 704)
+position = Vector2(1559, 661)
 
 [node name="SlightShotTowerLv3" parent="GameManager/TowerHolder" instance=ExtResource("13_jx43q")]
-position = Vector2(1698, 769)
+position = Vector2(1599, 726)
 
 [node name="BulletHolder" type="Node2D" parent="GameManager"]
 

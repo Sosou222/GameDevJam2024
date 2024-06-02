@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://db2s8e1p6h2k5"]
+[gd_scene load_steps=21 format=3 uid="uid://db2s8e1p6h2k5"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.cs" id="1_6w60e"]
 [ext_resource type="PackedScene" uid="uid://dpudviprfo1vk" path="res://Nodes/Prefabs/Bullets/SlighShotBullet/SlingShotBulletLv3.tscn" id="2_w8prf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dmjpagbpu54hf" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 03/Tower 03 - Level 03 - Weapon.png" id="4_qn6dw"]
 [ext_resource type="PackedScene" uid="uid://dhocqt1nctro2" path="res://Nodes/Components/EnemyDetectionComponent.tscn" id="5_i5415"]
 [ext_resource type="PackedScene" uid="uid://ctu3v810fssuq" path="res://Nodes/Components/TowerPlacementComponent.tscn" id="6_g0x7t"]
+[ext_resource type="PackedScene" uid="uid://eufg7nk4kb8y" path="res://Nodes/Components/ShowAreaComponent.tscn" id="7_6fllr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q1r0"]
 atlas = ExtResource("3_bbkyd")
@@ -128,3 +129,6 @@ shape = SubResource("RectangleShape2D_1ebtf")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="ShowAreaComponent" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("7_6fllr")]
+area2D = NodePath("../EnemyDetectionComponent")
