@@ -49,10 +49,8 @@ public partial class Enemy : PathFollow2D
 		}
 	}
 
-	public void Init(string EnemyType, EnemyInfo enemyInfo)
+	public void Init(EnemyType EnemyType, EnemyInfo enemyInfo)
 	{
-		animatedSprite2D.SpriteFrames = AnimationsManager.GetSpritesFrames(EnemyType);
-		animationPlayer.AddAnimationLibrary("", AnimationsManager.GetAnimationLibrary(EnemyType));
 		animationPlayer.Play("WalkRight");
 
 		Speed = enemyInfo.Speed;

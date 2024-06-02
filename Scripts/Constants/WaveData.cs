@@ -7,12 +7,12 @@ namespace Constants;
 
 public partial class WaveInfo : RefCounted
 {
-    public string EnemyType;
+    public EnemyType EnemyT;
     public int Amount;
 
-    public WaveInfo(string enemyType, int amount)
+    public WaveInfo(EnemyType enemyType, int amount)
     {
-        EnemyType = enemyType;
+        EnemyT = enemyType;
         Amount = amount;
     }
 }

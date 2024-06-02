@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=16 format=3 uid="uid://djahjcor3q0i4"]
 
-[ext_resource type="PackedScene" uid="uid://b15sahkucvymu" path="res://Nodes/Prefabs/Enemy.tscn" id="1_efwuj"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="TileSet" uid="uid://bv3xubkyhh685" path="res://Resources/Tileset/GameTileset.tres" id="2_44s8d"]
 [ext_resource type="Script" path="res://Scripts/WaveManager.cs" id="2_dvjyl"]
@@ -37,7 +36,6 @@ MaxHealth = 100
 
 [node name="WaveManager" type="Node2D" parent="GameManager"]
 script = ExtResource("2_dvjyl")
-enemyPackedScene = ExtResource("1_efwuj")
 
 [node name="EnemyPath" type="Path2D" parent="GameManager/WaveManager"]
 curve = SubResource("Curve2D_20xkg")

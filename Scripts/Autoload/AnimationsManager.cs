@@ -38,6 +38,7 @@ public partial class AnimationsManager : Node
 
     private void LoadAnimationSprites()
     {
+        /*
         foreach (string enemyType in EnemyType.All)
         {
             SpriteFrames spriteFrames = GD.Load<SpriteFrames>($"{animationSpritesPath}{enemyType}SpriteFrames.tres");
@@ -49,10 +50,12 @@ public partial class AnimationsManager : Node
 
             animationSprites.Add(enemyType, spriteFrames);
         }
+        */
     }
 
     private void LoadAniamtionLibraries()
     {
+        /*
         foreach (string enemyType in EnemyType.All)
         {
             AnimationLibrary spriteFrames = GD.Load<AnimationLibrary>($"{animationLibrariesPath}{enemyType}AnimationLibrary.res");
@@ -64,6 +67,7 @@ public partial class AnimationsManager : Node
 
             animationLibraries.Add(enemyType, spriteFrames);
         }
+        */
     }
 
 }

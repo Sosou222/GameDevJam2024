@@ -9,13 +9,10 @@ public partial class WaveManager : Node2D
 	[Signal]
 	public delegate void WaveEndEventHandler(int waveNumber);
 
-
-	[Export] private PackedScene enemyPackedScene;
-
 	private Timer timer;
 	private Path2D enemyPath;
 
-	private Array<string> waveData = new();
+	private Array<EnemyType> waveData = new();
 	private int waveIndex = 0;
 	private int wavePositionCurrent = 0;
 	private int enemyCount = 0;
@@ -37,7 +34,7 @@ public partial class WaveManager : Node2D
 		foreach (WaveInfo info in WaveData.Info[waveIndex])
 		{
 			for (int i = 0; i < info.Amount; i++)
-				waveData.Add(info.EnemyType);
+				waveData.Add(info.EnemyT);
 		}
 
 		enemyCount = waveData.Count;
@@ -54,9 +51,9 @@ public partial class WaveManager : Node2D
 			return;
 		}
 
-		string enemyType = waveData[wavePositionCurrent];
+		EnemyType enemyType = waveData[wavePositionCurrent];
 
-		Enemy enemy = enemyPackedScene.Instantiate<Enemy>();
+		Enemy enemy = EnemiesManager.GetEnemyScene(enemyType).Instantiate<Enemy>();
 		enemyPath.AddChild(enemy);
 		enemy.Init(enemyType, EnemyData.Info[enemyType]);
 

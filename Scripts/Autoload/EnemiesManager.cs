@@ -1,3 +1,4 @@
+using Constants;
 using Godot;
 using System;
 
@@ -6,6 +7,8 @@ using System.Linq;
 
 public partial class EnemiesManager : Node
 {
+    private Dictionary<EnemyType, PackedScene> enemiesScenes = new();
+
     private static EnemiesManager instance;
 
     private List<Enemy> enemies = new();
@@ -18,6 +21,9 @@ public partial class EnemiesManager : Node
             return;
         }
         instance = this;
+
+        enemiesScenes.Add(EnemyType.Leafbug, GD.Load<PackedScene>("res://Nodes/Prefabs/Enemies/EnemyLeafbug.tscn"));
+        enemiesScenes.Add(EnemyType.FireBug, GD.Load<PackedScene>("res://Nodes/Prefabs/Enemies/EnemyFirebug.tscn"));
     }
 
     public override void _Process(double delta)
@@ -31,6 +37,11 @@ public partial class EnemiesManager : Node
                 enemies.Add(enemy);
             }
         }
+    }
+
+    public static PackedScene GetEnemyScene(EnemyType enemyType)
+    {
+        return instance.enemiesScenes[enemyType];
     }
 
     public static Enemy GetFirstEnemyInSightOrNull(List<Enemy> enemiesInSight)
