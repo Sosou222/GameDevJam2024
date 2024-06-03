@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://qmsw54givcgq"]
+[gd_scene load_steps=27 format=3 uid="uid://qmsw54givcgq"]
 
 [ext_resource type="PackedScene" uid="uid://8gc6sc4us21x" path="res://Nodes/UI/TowerBuyButton.tscn" id="1_5srk3"]
+[ext_resource type="Script" path="res://Scripts/UI/UIControl.cs" id="1_yua7v"]
 [ext_resource type="PackedScene" uid="uid://d2n4kvubrfcv0" path="res://Nodes/Prefabs/Towers/MageTowers/MageTowerLv1.tscn" id="2_6gv87"]
 [ext_resource type="PackedScene" uid="uid://bd30lvvlnjs77" path="res://Nodes/Prefabs/Towers/ArrowTowers/ArrowTowerLv1.tscn" id="2_b8xex"]
 [ext_resource type="Texture2D" uid="uid://bk6lyicb8o3rn" path="res://Sprites/Foozle_Sprites/Towers/Towers bases/Tower 01.png" id="2_mno7n"]
@@ -14,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/HealthLabel.cs" id="10_2tns5"]
 [ext_resource type="Texture2D" uid="uid://b3c0iasyvyg43" path="res://Sprites/Foozle_Sprites/Towers/Towers Weapons/Tower 03/Tower 03 - Level 01 - Weapon.png" id="10_06nst"]
 [ext_resource type="Script" path="res://Scripts/UI/TowerInfoUI.cs" id="11_ri7cg"]
+[ext_resource type="FontFile" uid="uid://ewmg4xnir4dt" path="res://Fonts/Salmon Typewriter 9 Regular.ttf" id="16_ck717"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hn2dp"]
 atlas = ExtResource("2_mno7n")
@@ -39,7 +41,96 @@ region = Rect2(0, 24, 64, 104)
 atlas = ExtResource("10_06nst")
 region = Rect2(312, 24, 48, 48)
 
+[sub_resource type="Animation" id="Animation_cc25s"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ToggleButton:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1249, 307), Vector2(1040, 306)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1282, 0), Vector2(1073, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_gayj0"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1073, 0), Vector2(1282, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ToggleButton:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1040, 307), Vector2(1249, 307)]
+}
+
+[sub_resource type="Animation" id="Animation_3w1r8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1073, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ToggleButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1040, 307)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h266l"]
+_data = {
+"Close": SubResource("Animation_gayj0"),
+"Open": SubResource("Animation_cc25s"),
+"RESET": SubResource("Animation_3w1r8")
+}
+
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_yua7v")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 11
@@ -198,3 +289,17 @@ offset_top = 442.0
 offset_right = 198.0
 offset_bottom = 514.0
 text = "Upgrade"
+
+[node name="ToggleButton" type="Button" parent="."]
+offset_left = 1040.0
+offset_top = 307.0
+offset_right = 1073.0
+offset_bottom = 379.0
+theme_override_fonts/font = ExtResource("16_ck717")
+toggle_mode = true
+text = ">"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h266l")
+}
