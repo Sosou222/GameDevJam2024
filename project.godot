@@ -19,6 +19,15 @@ config/icon="res://icon.svg"
 
 AnimationsManager="*res://Nodes/Autoload/AnimationsManager.tscn"
 EnemiesManager="*res://Nodes/Autoload/EnemiesManager.tscn"
+SceneManager="*res://Nodes/Autoload/SceneManager.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
 
 [dotnet]
 

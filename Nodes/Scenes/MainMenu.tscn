@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7ffvhggx1kl2"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_adftn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adftn")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 152.0
+offset_right = 761.0
+offset_bottom = 238.0
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = 551.0
+offset_top = 318.0
+offset_right = 761.0
+offset_bottom = 404.0
+text = "Settings
+"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 551.0
+offset_top = 480.0
+offset_right = 761.0
+offset_bottom = 566.0
+text = "Quit"
