@@ -24,45 +24,11 @@ point_count = 8
 
 [node name="TestScene" type="Node2D"]
 
-[node name="Control" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Control"]
-offset_left = 367.0
-offset_top = 229.0
-offset_right = 742.0
-offset_bottom = 424.0
-theme_override_fonts/font = ExtResource("14_2pcdt")
-theme_override_font_sizes/font_size = 40
-text = "Game Over"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RestartButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 444.0
-offset_top = 438.0
-offset_right = 663.0
-offset_bottom = 477.0
-theme_override_fonts/font = ExtResource("14_2pcdt")
-text = "Restart"
-
-[node name="MenuButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 444.0
-offset_top = 507.0
-offset_right = 663.0
-offset_bottom = 545.0
-theme_override_fonts/font = ExtResource("14_2pcdt")
-text = "Back to Menu"
-
-[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("GameOverCotnrol")]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("GameOverCotnrol", "PauseCotnrol", "PauseButton")]
 script = ExtResource("1_ykn36")
 GameOverCotnrol = NodePath("../Control")
+PauseCotnrol = NodePath("../Control2")
+PauseButton = NodePath("Button")
 
 [node name="TileMap" type="TileMap" parent="GameManager"]
 tile_set = ExtResource("2_44s8d")
@@ -114,4 +80,83 @@ position = Vector2(1599, 726)
 
 [node name="AfterEffectHolder" type="Node2D" parent="GameManager"]
 
+[node name="Button" type="Button" parent="GameManager"]
+offset_right = 31.0
+offset_bottom = 31.0
+text = "X"
+
 [node name="Ui" parent="." instance=ExtResource("14_ri3b1")]
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 229.0
+offset_right = 742.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+theme_override_font_sizes/font_size = 40
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 438.0
+offset_right = 663.0
+offset_bottom = 477.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+text = "Restart"
+
+[node name="MenuButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 507.0
+offset_right = 663.0
+offset_bottom = 545.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+text = "Back to Menu"
+
+[node name="Control2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 171.0
+offset_right = 904.0
+offset_bottom = 411.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+theme_override_font_sizes/font_size = 60
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Control2"]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 363.0
+offset_right = 750.0
+offset_bottom = 416.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="Control2"]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 453.0
+offset_right = 753.0
+offset_bottom = 500.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+text = "Main Menu"

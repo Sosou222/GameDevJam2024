@@ -1,5 +1,6 @@
 using Constants;
 using Godot;
+using GodotPlugins.Game;
 using System;
 using System.Linq;
 
@@ -10,6 +11,7 @@ public partial class GameManager : Node
 
     [Export] private Control GameOverCotnrol;
     [Export] private Control PauseCotnrol;
+    [Export] private Button PauseButton;
     public static GameManager Instance { private set; get; }
 
     public Node2D TowerHolder { private set; get; }
@@ -32,9 +34,16 @@ public partial class GameManager : Node
         TowerHolder = GetNode<Node2D>("TowerHolder");
         BulletHolder = GetNode<Node2D>("BulletHolder");
         AfterEffectHolder = GetNode<Node2D>("AfterEffectHolder");
+
         label = GameOverCotnrol.GetNode<Label>("Label");
         GameOverCotnrol.GetNode<Button>("RestartButton").Pressed += () => SceneManager.ReloadScene();
         GameOverCotnrol.GetNode<Button>("MenuButton").Pressed += () => SceneManager.LoadScene("MainMenu");
+
+        PauseCotnrol.GetNode<Button>("ResumeButton").Pressed += OnUnPause;
+        PauseCotnrol.GetNode<Button>("QuitButton").Pressed += () => SceneManager.LoadScene("MainMenu");
+
+        PauseButton.Pressed += OnPause;
+
 
         waveManager.WaveEnd += BeginNewWave;
         waveManager.StartWave(0);
@@ -58,6 +67,18 @@ public partial class GameManager : Node
         label.Text = "GameOver";
 
         this.ProcessMode = ProcessModeEnum.Disabled;
+    }
+
+    private void OnPause()
+    {
+        PauseCotnrol.Visible = true;
+        this.ProcessMode = ProcessModeEnum.Disabled;
+    }
+
+    private void OnUnPause()
+    {
+        PauseCotnrol.Visible = false;
+        this.ProcessMode = ProcessModeEnum.Inherit;
     }
 
     public static void PayGold(int gold)
