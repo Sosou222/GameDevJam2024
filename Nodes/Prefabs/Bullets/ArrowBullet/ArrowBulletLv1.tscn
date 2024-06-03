@@ -45,7 +45,7 @@ afterEffect = ExtResource("2_0t72i")
 [node name="DamagingComponent" parent="." instance=ExtResource("2_05uhq")]
 position = Vector2(8, 0)
 rotation = 1.57079
-Damage = 1
+Damage = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
 shape = SubResource("RectangleShape2D_uhwlq")
@@ -58,3 +58,4 @@ autoplay = "Idle"
 
 [node name="ToDirectionMovementComponent" parent="." node_paths=PackedStringArray("owner") instance=ExtResource("5_puikm")]
 owner = NodePath("..")
+Speed = 900.0

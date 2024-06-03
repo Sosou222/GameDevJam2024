@@ -91,6 +91,8 @@ size = Vector2(51, 97)
 script = ExtResource("1_chaiq")
 bulletScene = ExtResource("2_jko4e")
 SFXShootSound = "ArrowLaunch"
+TowerShowName = "Arrow Tower LV1"
+DamageTextShow = "Arrow deal 3 damage on contact and are fast projectiles."
 upgradedTower = ExtResource("3_5hn6k")
 
 [node name="TowerBaseSprite" type="Sprite2D" parent="."]

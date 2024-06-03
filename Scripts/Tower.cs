@@ -16,6 +16,8 @@ public partial class Tower : Node2D
 	[Export] private WeaponBehavior weaponBehavior = WeaponBehavior.Rotate;
 	[Export] private float ShootInterval = 1.0f;
 	[Export] private string SFXShootSound = "";
+	[Export] private string TowerShowName = "";
+	[Export] private string DamageTextShow = "";
 
 	[Export] public PackedScene upgradedTower { private set; get; } = null;
 
