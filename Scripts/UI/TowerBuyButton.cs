@@ -31,6 +31,7 @@ public partial class TowerBuyButton : Button
 			return;
 		}
 		isDraging = true;
+		UIControl.ToggleButton();
 
 		tmpTower = towerScene.Instantiate<Tower>();
 		tmpTower.ProcessMode = ProcessModeEnum.Disabled;
@@ -56,6 +57,7 @@ public partial class TowerBuyButton : Button
 		{
 			tmpTower.QueueFree();
 		}
+		UIControl.ToggleButton();
 		tmpTower = null;
 	}
 
