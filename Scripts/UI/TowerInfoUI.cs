@@ -33,6 +33,7 @@ public partial class TowerInfoUI : Panel
 
 	private void SetTowerInfo()
 	{
+		UIControl.SetTowerInfoVisibility(true);
 		selectedTower.showAreaComponent.ShowArea = true;
 		towerName.Text = selectedTower.Name;
 		upgradeButton.Disabled = selectedTower.upgradedTower == null;
@@ -41,6 +42,7 @@ public partial class TowerInfoUI : Panel
 
 	private void Reset()
 	{
+		UIControl.SetTowerInfoVisibility(false);
 		towerName.Text = "";
 		upgradeButton.Disabled = true;
 	}

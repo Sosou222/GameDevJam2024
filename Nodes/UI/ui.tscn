@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://qmsw54givcgq"]
+[gd_scene load_steps=31 format=3 uid="uid://qmsw54givcgq"]
 
 [ext_resource type="PackedScene" uid="uid://8gc6sc4us21x" path="res://Nodes/UI/TowerBuyButton.tscn" id="1_5srk3"]
 [ext_resource type="Script" path="res://Scripts/UI/UIControl.cs" id="1_yua7v"]
@@ -129,6 +129,58 @@ _data = {
 "RESET": SubResource("Animation_3w1r8")
 }
 
+[sub_resource type="Animation" id="Animation_nr1t6"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 131), Vector2(-206, 131)]
+}
+
+[sub_resource type="Animation" id="Animation_hw4iw"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-206, 131), Vector2(0, 131)]
+}
+
+[sub_resource type="Animation" id="Animation_q1y6i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 131)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jeyew"]
+_data = {
+"Close": SubResource("Animation_nr1t6"),
+"Open": SubResource("Animation_hw4iw"),
+"RESET": SubResource("Animation_q1y6i")
+}
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_yua7v")
 
@@ -188,6 +240,7 @@ anchors_preset = 0
 anchor_right = 0.0
 offset_right = 1.0
 grow_horizontal = 1
+theme_override_fonts/font = ExtResource("16_ck717")
 towerBuyButton = NodePath("../TowerBuyButton")
 
 [node name="Panel2" type="Panel" parent="Panel/GridContainer"]
@@ -222,6 +275,7 @@ anchors_preset = 0
 anchor_right = 0.0
 offset_right = 1.0
 grow_horizontal = 1
+theme_override_fonts/font = ExtResource("16_ck717")
 towerBuyButton = NodePath("../TowerBuyButton")
 
 [node name="Panel3" type="Panel" parent="Panel/GridContainer"]
@@ -257,18 +311,23 @@ anchors_preset = 0
 anchor_right = 0.0
 offset_right = 1.0
 grow_horizontal = 1
+theme_override_fonts/font = ExtResource("16_ck717")
 towerBuyButton = NodePath("../TowerBuyButton")
 
 [node name="GoldLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("16_ck717")
+theme_override_font_sizes/font_size = 20
 text = "Gold:"
 script = ExtResource("9_e78kl")
 
 [node name="HealthLabel" type="Label" parent="."]
 offset_top = 27.0
-offset_right = 40.0
-offset_bottom = 50.0
+offset_right = 47.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("16_ck717")
+theme_override_font_sizes/font_size = 20
 text = "HP:"
 script = ExtResource("10_2tns5")
 
@@ -303,3 +362,9 @@ text = ">"
 libraries = {
 "": SubResource("AnimationLibrary_h266l")
 }
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jeyew")
+}
+autoplay = "Close"
