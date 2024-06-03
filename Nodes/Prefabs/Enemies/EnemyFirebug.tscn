@@ -1417,6 +1417,7 @@ shape = SubResource("RectangleShape2D_b8thv")
 disabled = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_ldyk0")]
+MaxHealth = 25
 
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("5_ry2qv")]
 offset_left = -32.0
