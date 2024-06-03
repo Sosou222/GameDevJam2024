@@ -32,8 +32,6 @@ public partial class Enemy : PathFollow2D
 		this.ReachedEnd += () => GD.Print($"{Name} reached end");
 		this.ReachedEnd += QueueFree;
 
-		healthComponent.Die += () => GameManager.AddGold(Gold);
-		healthComponent.Die += () => IsDying = true;
 		healthComponent.Die += OnDie;
 	}
 
@@ -110,6 +108,12 @@ public partial class Enemy : PathFollow2D
 
 	private void OnDie()
 	{
+		if (IsDying)
+		{
+			return;
+		}
+		GameManager.AddGold(Gold);
+		IsDying = true;
 		string animationName = "Dying";
 		animationName += GetAnimationDir();
 
