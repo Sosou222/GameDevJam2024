@@ -55,6 +55,7 @@ public partial class GameManager : Node
     {
         if (!WaveData.Info.ContainsKey(lastWave + 1))
         {
+            OnWin();
             return;
         }
 
@@ -65,6 +66,14 @@ public partial class GameManager : Node
     {
         GameOverCotnrol.Visible = true;
         label.Text = "GameOver";
+
+        this.ProcessMode = ProcessModeEnum.Disabled;
+    }
+
+    private void OnWin()
+    {
+        GameOverCotnrol.Visible = true;
+        label.Text = "Winner";
 
         this.ProcessMode = ProcessModeEnum.Disabled;
     }

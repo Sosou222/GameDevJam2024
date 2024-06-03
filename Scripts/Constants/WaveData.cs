@@ -37,5 +37,61 @@ public class WaveData
             new WaveInfo(EnemyType.FireBug,5),
             new WaveInfo(EnemyType.Leafbug,3),
         }}
+        ,
+        { 3, new Array<WaveInfo>
+        {
+            new WaveInfo(EnemyType.Leafbug,10),
+            new WaveInfo(EnemyType.FireBug,5),
+            new WaveInfo(EnemyType.Leafbug,3),
+        }}
+        ,
+        { 4, new Array<WaveInfo>
+        {
+            new WaveInfo(EnemyType.Leafbug,10),
+            new WaveInfo(EnemyType.FireBug,5),
+            new WaveInfo(EnemyType.Leafbug,3),
+        }}
+        ,
+        { 5, new Array<WaveInfo>
+        {
+            new WaveInfo(EnemyType.Leafbug,10),
+            new WaveInfo(EnemyType.FireBug,5),
+            new WaveInfo(EnemyType.Leafbug,3),
+        }}
+        ,
+        { 6, new Array<WaveInfo>
+        {
+            new WaveInfo(EnemyType.Leafbug,10),
+            new WaveInfo(EnemyType.FireBug,5),
+            new WaveInfo(EnemyType.Leafbug,3),
+        }}
+        ,
+        { 7, new Array<WaveInfo>
+        {
+            new WaveInfo(EnemyType.Leafbug,10),
+            new WaveInfo(EnemyType.FireBug,5),
+            new WaveInfo(EnemyType.Leafbug,3),
+        }}
+        ,
+        { 8, new Array<WaveInfo>
+        {
+            new WaveInfo(EnemyType.Leafbug,10),
+            new WaveInfo(EnemyType.FireBug,5),
+            new WaveInfo(EnemyType.Leafbug,3),
+        }}
+        ,
+        { 9, new Array<WaveInfo>
+        {
+            new WaveInfo(EnemyType.Leafbug,10),
+            new WaveInfo(EnemyType.FireBug,5),
+            new WaveInfo(EnemyType.Leafbug,3),
+        }}
+        ,
+        { 10, new Array<WaveInfo>
+        {
+            new WaveInfo(EnemyType.Leafbug,10),
+            new WaveInfo(EnemyType.FireBug,5),
+            new WaveInfo(EnemyType.Leafbug,3),
+        }}
     };
 }
