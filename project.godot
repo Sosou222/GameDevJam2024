@@ -15,11 +15,16 @@ run/main_scene="res://Nodes/Scenes/TestScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Resources/AudioBus/default_bus_layout.tres"
+
 [autoload]
 
 AnimationsManager="*res://Nodes/Autoload/AnimationsManager.tscn"
 EnemiesManager="*res://Nodes/Autoload/EnemiesManager.tscn"
 SceneManager="*res://Nodes/Autoload/SceneManager.tscn"
+AudioManager="*res://Nodes/Autoload/AudioManager.tscn"
 
 [display]
 

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb6txxudnx6pb"]
+
+[ext_resource type="Script" path="res://Scripts/Autoload/AudioManager.cs" id="1_4f12q"]
+[ext_resource type="AudioStream" uid="uid://cb78aa5dcho5d" path="res://Audio/SFX/ArrowLaunch.wav" id="2_olurj"]
+[ext_resource type="AudioStream" uid="uid://hk6qxfjr20xj" path="res://Audio/Music/Ludum Dare 28 - 01.ogg" id="2_r5n61"]
+[ext_resource type="AudioStream" uid="uid://dly3guwhvdrpb" path="res://Audio/SFX/MageLaunch.wav" id="3_d78b1"]
+[ext_resource type="AudioStream" uid="uid://c11dksgsqby7t" path="res://Audio/SFX/SlingshotLaunch.wav" id="4_oi488"]
+
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("musicParent", "sfxParent")]
+script = ExtResource("1_4f12q")
+musicParent = NodePath("Music")
+sfxParent = NodePath("SFX")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="BasicMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_r5n61")
+bus = &"Music"
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="ArrowLaunch" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_olurj")
+bus = &"SFX"
+
+[node name="MageLaunch" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_d78b1")
+bus = &"SFX"
+
+[node name="SlinshotLaunch" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_oi488")
+bus = &"SFX"

@@ -9,16 +9,18 @@ public partial class MainMenu : Control
 		GetNode<Button>("StartButton").Pressed += OnStartButtonPressed;
 		GetNode<Button>("SettingsButton").Pressed += OnSettingsButtonPressed;
 		GetNode<Button>("QuitButton").Pressed += OnQuitButtonPressed;
+
+		AudioManager.PlayMusic("BasicMusic");
 	}
 
 	private void OnStartButtonPressed()
 	{
-		SceneManager.LoadScene("TestScene");
+		SceneManager.LoadScene("Level1Scene");
 	}
 
 	private void OnSettingsButtonPressed()
 	{
-
+		SceneManager.LoadScene("Settings");
 	}
 
 	private void OnQuitButtonPressed()

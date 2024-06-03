@@ -1,0 +1,215 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm8o02kph03fw"]
+
+[ext_resource type="Script" path="res://Scripts/Settings.cs" id="1_x25wd"]
+[ext_resource type="Texture2D" uid="uid://cffipwsip85is" path="res://Sprites/Foozle_Sprites/Tileset/Grass Tileset.png" id="2_h232x"]
+[ext_resource type="FontFile" uid="uid://ewmg4xnir4dt" path="res://Fonts/Salmon Typewriter 9 Regular.ttf" id="3_uf320"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1twq7"]
+atlas = ExtResource("2_h232x")
+region = Rect2(384, 128, 64, 64)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x25wd")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(96, 96)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(288, 96)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(480, 96)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(672, 96)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(864, 96)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1056, 96)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1248, 96)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(96, 288)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(288, 288)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(480, 288)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(672, 288)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(864, 288)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1056, 288)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1248, 288)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D15" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(96, 480)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D16" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(288, 480)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D17" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(480, 480)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(672, 480)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D19" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(864, 480)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D20" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1056, 480)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D21" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1248, 480)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D22" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(96, 672)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D23" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(288, 672)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D24" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(480, 672)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D25" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(672, 672)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D26" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(864, 672)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D27" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1056, 672)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Sprite2D28" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1248, 672)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_1twq7")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 588.0
+offset_right = 203.0
+offset_bottom = 719.0
+tooltip_text = "
+"
+theme_override_fonts/font = ExtResource("3_uf320")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="MusicHSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 89.0
+offset_right = 891.0
+offset_bottom = 130.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label" type="Label" parent="MusicHSlider"]
+layout_mode = 0
+offset_left = -118.0
+offset_right = -10.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("3_uf320")
+theme_override_font_sizes/font_size = 24
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXHSlider" type="HSlider" parent="."]
+offset_left = 478.0
+offset_top = 188.0
+offset_right = 891.0
+offset_bottom = 229.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label" type="Label" parent="SFXHSlider"]
+layout_mode = 0
+offset_left = -118.0
+offset_right = -10.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("3_uf320")
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
