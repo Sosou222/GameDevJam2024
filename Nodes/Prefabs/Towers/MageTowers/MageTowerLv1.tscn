@@ -223,6 +223,7 @@ script = ExtResource("1_kcoee")
 bulletScene = ExtResource("2_xc886")
 weaponBehavior = 1
 ShootInterval = 1.7
+UpgradeCost = 55
 SFXShootSound = "MageLaunch"
 TowerShowName = "Mage Tower Lv1"
 DamageTextShow = "Summons projectile with deals 5 damage in AOE on arrival."

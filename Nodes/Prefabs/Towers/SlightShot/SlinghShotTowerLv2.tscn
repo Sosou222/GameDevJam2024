@@ -103,6 +103,7 @@ size = Vector2(51, 106)
 script = ExtResource("1_xjb6u")
 bulletScene = ExtResource("2_o3yni")
 ShootInterval = 1.4
+UpgradeCost = 80
 SFXShootSound = "SlinshotLaunch"
 TowerShowName = "Slingshot Tower Lv2"
 DamageTextShow = "Shoots projectile that leaves poison area that deals 2 times 5 damage to enemies in it."
