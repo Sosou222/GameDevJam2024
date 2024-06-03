@@ -312,6 +312,7 @@ size = Vector2(51, 114)
 script = ExtResource("1_lwneu")
 bulletScene = ExtResource("2_i8ueo")
 weaponBehavior = 1
+SFXShootSound = "MageLaunch"
 
 [node name="TowerBase" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_vh4t8")

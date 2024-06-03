@@ -102,6 +102,7 @@ size = Vector2(51, 97)
 [node name="SlightShotTowerLv1" type="Node2D"]
 script = ExtResource("1_5nf7d")
 bulletScene = ExtResource("2_gciim")
+SFXShootSound = "SlinshotLaunch"
 upgradedTower = ExtResource("3_0ury3")
 
 [node name="TowerBaseSprite" type="Sprite2D" parent="."]

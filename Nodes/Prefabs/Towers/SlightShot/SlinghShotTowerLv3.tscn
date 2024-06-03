@@ -101,6 +101,7 @@ size = Vector2(51, 115)
 [node name="SlightShotTowerLv3" type="Node2D"]
 script = ExtResource("1_6w60e")
 bulletScene = ExtResource("2_w8prf")
+SFXShootSound = "SlinshotLaunch"
 
 [node name="TowerBaseSprite" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_5q1r0")

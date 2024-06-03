@@ -271,6 +271,7 @@ size = Vector2(51, 107)
 script = ExtResource("1_6ayon")
 bulletScene = ExtResource("2_uql0o")
 weaponBehavior = 1
+SFXShootSound = "MageLaunch"
 upgradedTower = ExtResource("3_8h8w6")
 
 [node name="TowerBase" type="Sprite2D" parent="."]

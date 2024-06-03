@@ -87,6 +87,7 @@ size = Vector2(51, 116)
 [node name="ArrowTowerLv3" type="Node2D"]
 script = ExtResource("1_cjq2y")
 bulletScene = ExtResource("2_4im1m")
+SFXShootSound = "ArrowLaunch"
 
 [node name="TowerBaseSprite" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_bvriy")

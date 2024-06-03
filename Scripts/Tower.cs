@@ -15,6 +15,7 @@ public partial class Tower : Node2D
 	[Export] private PackedScene bulletScene;
 	[Export] private WeaponBehavior weaponBehavior = WeaponBehavior.Rotate;
 	[Export] private float ShootInterval = 1.0f;
+	[Export] private string SFXShootSound = "";
 
 	[Export] public PackedScene upgradedTower { private set; get; } = null;
 
@@ -83,6 +84,10 @@ public partial class Tower : Node2D
 			bullet.Init(en.GlobalPosition);
 
 			GameManager.Instance.BulletHolder.AddChild(bullet);
+			if (SFXShootSound != "")
+			{
+				AudioManager.PlaySound(SFXShootSound);
+			}
 			CreateShootTween();
 		}
 	}
