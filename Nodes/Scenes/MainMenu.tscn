@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7ffvhggx1kl2"]
+[gd_scene load_steps=3 format=3 uid="uid://b7ffvhggx1kl2"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_adftn"]
+[ext_resource type="FontFile" uid="uid://ewmg4xnir4dt" path="res://Fonts/Salmon Typewriter 9 Regular.ttf" id="2_17ovu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -15,8 +16,10 @@ script = ExtResource("1_adftn")
 layout_mode = 0
 offset_left = 551.0
 offset_top = 152.0
-offset_right = 761.0
+offset_right = 807.0
 offset_bottom = 238.0
+theme_override_fonts/font = ExtResource("2_17ovu")
+theme_override_font_sizes/font_size = 40
 text = "Start"
 
 [node name="SettingsButton" type="Button" parent="."]
@@ -24,12 +27,16 @@ offset_left = 551.0
 offset_top = 318.0
 offset_right = 761.0
 offset_bottom = 404.0
+theme_override_fonts/font = ExtResource("2_17ovu")
+theme_override_font_sizes/font_size = 40
 text = "Settings
 "
 
 [node name="QuitButton" type="Button" parent="."]
 offset_left = 551.0
 offset_top = 480.0
-offset_right = 761.0
-offset_bottom = 566.0
+offset_right = 807.0
+offset_bottom = 560.0
+theme_override_fonts/font = ExtResource("2_17ovu")
+theme_override_font_sizes/font_size = 40
 text = "Quit"

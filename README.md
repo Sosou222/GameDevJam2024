@@ -11,3 +11,6 @@ https://foozlecc.itch.io/spire-enemy-pack-1
 https://foozlecc.itch.io/spire-enemy-pack-2
 https://foozlecc.itch.io/spire-builder-pack
 https://foozlecc.itch.io/spire-enemy-pack-1
+
+Added font SalmonTypewriter made by Phildjii link:
+https://phildjii.itch.io/salmon-typewriter
