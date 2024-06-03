@@ -128,7 +128,7 @@ libraries = {
 autoplay = "Effect"
 
 [node name="DamagingComponent" parent="." instance=ExtResource("2_8dy0w")]
-Damage = 3
+Damage = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingComponent"]
 position = Vector2(0.5, -11)

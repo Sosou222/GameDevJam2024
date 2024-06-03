@@ -312,7 +312,10 @@ size = Vector2(51, 114)
 script = ExtResource("1_lwneu")
 bulletScene = ExtResource("2_i8ueo")
 weaponBehavior = 1
+ShootInterval = 1.5
 SFXShootSound = "MageLaunch"
+TowerShowName = "Mage Tower Lv3"
+DamageTextShow = "Summons projectile with deals 15 damage in AOE on arrival."
 
 [node name="TowerBase" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_vh4t8")

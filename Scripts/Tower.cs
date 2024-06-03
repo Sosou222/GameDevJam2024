@@ -14,10 +14,11 @@ public partial class Tower : Node2D
 
 	[Export] private PackedScene bulletScene;
 	[Export] private WeaponBehavior weaponBehavior = WeaponBehavior.Rotate;
-	[Export] private float ShootInterval = 1.0f;
+	[Export] public float ShootInterval = 1.0f;
+	[Export] public int UpgradeCost = 20;
 	[Export] private string SFXShootSound = "";
-	[Export] private string TowerShowName = "";
-	[Export] private string DamageTextShow = "";
+	[Export] public string TowerShowName = "";
+	[Export] public string DamageTextShow = "";
 
 	[Export] public PackedScene upgradedTower { private set; get; } = null;
 

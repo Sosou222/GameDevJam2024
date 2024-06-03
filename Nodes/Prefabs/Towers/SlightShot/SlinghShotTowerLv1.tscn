@@ -102,7 +102,10 @@ size = Vector2(51, 97)
 [node name="SlightShotTowerLv1" type="Node2D"]
 script = ExtResource("1_5nf7d")
 bulletScene = ExtResource("2_gciim")
+ShootInterval = 1.2
 SFXShootSound = "SlinshotLaunch"
+TowerShowName = "Slingshot Tower Lv1"
+DamageTextShow = "Shoots projectile that leaves poison area that deals 1 times 5 damage to enemies in it."
 upgradedTower = ExtResource("3_0ury3")
 
 [node name="TowerBaseSprite" type="Sprite2D" parent="."]

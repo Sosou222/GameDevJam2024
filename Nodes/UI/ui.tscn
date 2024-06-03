@@ -189,9 +189,8 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1073.0
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_left = -207.0
+offset_bottom = 1450.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
@@ -224,6 +223,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 towerScene = ExtResource("2_b8xex")
+Cost = 35
 
 [node name="Node2D" type="Node2D" parent="Panel/GridContainer/Panel"]
 position = Vector2(39, 79)
@@ -259,7 +259,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 towerScene = ExtResource("2_6gv87")
-Cost = 15
+Cost = 55
 
 [node name="Node2D" type="Node2D" parent="Panel/GridContainer/Panel2"]
 position = Vector2(39, 79)
@@ -294,7 +294,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 towerScene = ExtResource("9_majvu")
-Cost = 20
+Cost = 60
 
 [node name="Node2D" type="Node2D" parent="Panel/GridContainer/Panel3"]
 position = Vector2(39, 79)
@@ -343,12 +343,43 @@ script = ExtResource("11_ri7cg")
 layout_mode = 0
 offset_right = 198.0
 offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("16_ck717")
+text = "Tower Name"
+autowrap_mode = 3
+
+[node name="ShootSpeed" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_top = 98.0
+offset_right = 198.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("16_ck717")
+text = "Shoot Speed : 1s"
+autowrap_mode = 3
+
+[node name="DamageInfo" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_top = 191.0
+offset_right = 198.0
+offset_bottom = 411.0
+theme_override_fonts/font = ExtResource("16_ck717")
+text = "Damage Info:"
+autowrap_mode = 3
+
+[node name="UpgradeAmount" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_top = 411.0
+offset_right = 198.0
+offset_bottom = 442.0
+theme_override_fonts/font = ExtResource("16_ck717")
+text = "G:10"
+autowrap_mode = 3
 
 [node name="UpgradeButton" type="Button" parent="Panel2"]
 layout_mode = 0
 offset_top = 442.0
 offset_right = 198.0
 offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("16_ck717")
 text = "Upgrade"
 
 [node name="ToggleButton" type="Button" parent="."]
