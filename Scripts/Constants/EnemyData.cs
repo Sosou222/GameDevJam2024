@@ -16,7 +16,7 @@ public class EnemyData
 {
     public static readonly Dictionary<EnemyType, EnemyInfo> Info = new()
     {
-        { EnemyType.FireBug, new EnemyInfo() { Speed = 100.0f, Gold = 5,Damage = 3} },
-        { EnemyType.Leafbug, new EnemyInfo() { Speed = 50.0f, Gold = 2,Damage = 1} }
+        { EnemyType.FireBug, new EnemyInfo() { Speed = 100.0f, Gold = 10,Damage = 3} },
+        { EnemyType.Leafbug, new EnemyInfo() { Speed = 50.0f, Gold = 5,Damage = 1} }
     };
 }
