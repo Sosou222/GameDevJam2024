@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://djahjcor3q0i4"]
+[gd_scene load_steps=17 format=3 uid="uid://djahjcor3q0i4"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_ykn36"]
 [ext_resource type="TileSet" uid="uid://bv3xubkyhh685" path="res://Resources/Tileset/GameTileset.tres" id="2_44s8d"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dhhi7r1r3xfv5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv1.tscn" id="11_gt6v8"]
 [ext_resource type="PackedScene" uid="uid://o0fv7d3gw5x6" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv2.tscn" id="12_ywxo5"]
 [ext_resource type="PackedScene" uid="uid://db2s8e1p6h2k5" path="res://Nodes/Prefabs/Towers/SlightShot/SlinghShotTowerLv3.tscn" id="13_jx43q"]
+[ext_resource type="FontFile" uid="uid://ewmg4xnir4dt" path="res://Fonts/Salmon Typewriter 9 Regular.ttf" id="14_2pcdt"]
 [ext_resource type="PackedScene" uid="uid://qmsw54givcgq" path="res://Nodes/UI/ui.tscn" id="14_ri3b1"]
 
 [sub_resource type="Curve2D" id="Curve2D_20xkg"]
@@ -23,8 +24,45 @@ point_count = 8
 
 [node name="TestScene" type="Node2D"]
 
-[node name="GameManager" type="Node2D" parent="."]
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 367.0
+offset_top = 229.0
+offset_right = 742.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+theme_override_font_sizes/font_size = 40
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 438.0
+offset_right = 663.0
+offset_bottom = 477.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+text = "Restart"
+
+[node name="MenuButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 507.0
+offset_right = 663.0
+offset_bottom = 545.0
+theme_override_fonts/font = ExtResource("14_2pcdt")
+text = "Back to Menu"
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("GameOverCotnrol")]
 script = ExtResource("1_ykn36")
+GameOverCotnrol = NodePath("../Control")
 
 [node name="TileMap" type="TileMap" parent="GameManager"]
 tile_set = ExtResource("2_44s8d")
