@@ -422,6 +422,7 @@ point_count = 11
 [node name="Level1Scene" type="Node2D"]
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("GameOverCotnrol", "PauseCotnrol", "PauseButton")]
+position = Vector2(0, -1)
 script = ExtResource("1_70c7k")
 GameOverCotnrol = NodePath("../Control")
 PauseCotnrol = NodePath("../Control2")
